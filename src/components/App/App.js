@@ -1,16 +1,42 @@
-import React from 'react';
-// import logo from '../../assets/images/logo.svg';
-import './App.css';
-import QuestionInput from '../QuestionInput/QuestionInput';
+import React from "react";
+import Userid from "../userid";
+import Main from "../main";
+import Login from "../login";
+import Create from "../create/Create";
+import Join from "../join/Join";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch
+} from "react-router-dom";
 
-function App() {
-  let tagList = [{id: 1, name: "Ruby"}, {id: 2, name: "Javascript"}, {id: 3, name: "SQL"}, {id: 4, name: "Python"}, {id:5, name: "Coding"}];
-
+export default function App() {
   return (
-    <div>
-      <QuestionInput tagList = {tagList}/>
-    </div>
+    <Router>
+        <Switch>
+          <Route exact path="/">
+            <Login />
+          </Route>
+          <Route path="/userID">
+            <Userid/>
+          </Route>
+          <Route path="/create">
+            <Create/>
+          </Route>
+          <Route path="/join">
+            <Join/>
+          </Route>
+          <Route path="/main">
+            <Main/>
+          </Route>
+        </Switch>
+    </Router>
   );
 }
 
-export default App;
+
+
+
