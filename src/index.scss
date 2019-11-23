@@ -1,0 +1,15 @@
+@import "~normalize.css/normalize.css";
+
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   height: 100%;
+   width: 100vw;
+   font-family: 'Playfair Display', serif;
+   font-size: 1.2rem;
+}
+

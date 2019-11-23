@@ -1,9 +1,9 @@
 import React from "react";
 import Userid from "../userid";
 import Main from "../main";
-import Login from "../login";
-import Create from "../create/Create";
-import Join from "../join/Join";
+import Login from "../login/login";
+import Create from "../create-room/Create";
+import Join from "../join-room/Join";
 import {
   BrowserRouter as Router,
   Switch,

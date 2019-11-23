@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Button from "../Button";
 import TagList from "./TagList";
 class QuestionInput extends Component {
   constructor(props) {
@@ -71,9 +71,8 @@ class QuestionInput extends Component {
 
         <form onSubmit={this.handleSubmit}>
           <TagList tagList={this.props.tagList} handleCheck={this.handleCheck} />
-
           <input type="text" name="question" />
-          <button>Submit</button>
+          <Button/>
         </form>
 
       </div>
