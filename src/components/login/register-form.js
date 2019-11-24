@@ -1,19 +1,24 @@
 import React from "react";
-import Button from "../Button";
 import "./register-form.scss";
+import Button from "@material-ui/core/Button";
 
-export default function RegisterForm () {
-   return (
-      <div>
-         <div>Register</div>
-         <form>
-            <input placeholder="Username"></input>
-            <input placeholder="Email"></input>
-            <input placeholder="Password"></input>
-            <input placeholder="Confirm password"></input>
-            <Button/>
-         </form>
-         <Button/>
+export default function RegisterForm() {
+  return (
+    <form className="login--Rform">
+      <h2>REGISTER</h2>
+      <p className = "tag">Username</p>
+      <input placeholder=" Username"></input>
+      <p className = "tag">Email</p>
+      <input placeholder=" Email"></input>
+      <p className = "tag">Password</p>
+      <input placeholder=" Password"></input>
+      <p className = "tag">Confirm password</p>
+      <input placeholder=" Confirm password"></input>
+      <div className="button--register">
+        <Button variant="contained" color="primary">
+          Register
+        </Button>
       </div>
-   )
+    </form>
+  );
 }

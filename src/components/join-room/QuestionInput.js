@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Button from "../Button";
 import TagList from "./TagList";
+import Button from '@material-ui/core/Button';
 class QuestionInput extends Component {
   constructor(props) {
     super(props);
@@ -72,7 +72,7 @@ class QuestionInput extends Component {
         <form onSubmit={this.handleSubmit}>
           <TagList tagList={this.props.tagList} handleCheck={this.handleCheck} />
           <input type="text" name="question" />
-          <Button/>
+          <Button variant="outlined" color="primary">Submit</Button>
         </form>
 
       </div>

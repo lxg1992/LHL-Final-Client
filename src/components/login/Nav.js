@@ -1,12 +1,14 @@
 import React from "react";
+import "./Nav.scss";
+import Button from '@material-ui/core/Button';
 
 export default function Login() {
    return (
-      <div className="nav-bar">
-         <div className="logo">
-            <div>LOGO</div>
+      <div className = "login--Nav">
+         <div className = "logo">
+            LOGO
          </div>
-         <div>Login as a Guest</div>
+         <Button variant="outlined" color="primary" className="guest">Login as Guest?</Button>
       </div>
    )
 }
