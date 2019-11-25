@@ -9,7 +9,6 @@ class QuestionOutput extends Component {
     }
   }
 
-
   render(){
     return (
       <div>

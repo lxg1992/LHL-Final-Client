@@ -1,0 +1,31 @@
+.login--Lform{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   width: 90%;
+   margin: auto;
+   h2{
+      padding: 1rem 0 2rem 0;
+      margin: auto;
+   }
+   // .orDiv {
+   //    position: relative;
+   // }
+   // .or {
+   //    position: absolute;
+   //    top: -0.6rem;
+   //    left: 50%;
+   //    background: rgb(245, 245, 245);
+   // }
+   input {
+      line-height: 2.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      width: 100%;
+      border-radius: 8px;
+      border: solid 0.5px grey;
+   }
+   button {
+      margin: 1rem auto;
+   }
+}

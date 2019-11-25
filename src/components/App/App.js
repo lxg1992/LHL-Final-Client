@@ -1,9 +1,10 @@
 import React from "react";
-import Userid from "../userid";
-import Main from "../main";
+import Userid from "../user-login/userid";
+import Main from "../main/main";
 import Login from "../login/login";
-import Create from "../create-room/Create";
-import Join from "../join-room/Join";
+import Create from "../create/Create";
+import Join from "../join/Join";
+import Account from "../account/Account";
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,6 +20,9 @@ export default function App() {
         <Switch>
           <Route exact path="/">
             <Login />
+          </Route>
+          <Route path="/account">
+            <Account/>
           </Route>
           <Route path="/userID">
             <Userid/>

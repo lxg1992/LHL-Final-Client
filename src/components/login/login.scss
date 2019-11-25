@@ -2,22 +2,6 @@
    display: grid;
    grid-template-columns: repeat(3, 1fr);
    grid-template-rows: auto;
-
-   .login--Nav{
-      grid-column: 1/4;
-      display: grid;
-      margin: 2rem;
-      .logo {
-         grid-column: 1/2;
-         margin-left: 2rem;
-         margin-right: 1rem;
-      }
-      .guest{
-         grid-column: 3/4;
-         justify-self: end;
-         margin-right: 2rem;
-      }
-   }
    .login--bar {
       grid-column: 2/3;
       border-radius: 5%;
@@ -59,58 +43,4 @@
    }
 }
 
-.login--Lform{
-   display: flex;
-   flex-direction: column;
-   justify-content: space-evenly;
-   width: 90%;
-   margin: auto;
-   h2{
-      padding: 1rem 0 2rem 0;
-      margin: auto;
-   }
-   // .orDiv {
-   //    position: relative;
-   // }
-   // .or {
-   //    position: absolute;
-   //    top: -0.6rem;
-   //    left: 50%;
-   //    background: rgb(245, 245, 245);
-   // }
-   input {
-      line-height: 2.5rem;
-      margin-top: 0.5rem;
-      margin-bottom: 0.5rem;
-      width: 100%;
-      border-radius: 8px;
-      border: solid 0.5px grey;
-   }
-   button {
-      margin: 1rem auto;
-   }
-}
 
-
-.login--Rform{
-   display: flex;
-   flex-direction: column;
-   width: 90%;
-   margin: auto;
-   h2{
-      padding: 1rem 0 1rem 0;
-      margin: auto;
-   }
-   .button--register {
-      margin: 0.5rem auto;
-   } 
-   input {
-      line-height: 2.4rem;
-      margin-top: 0.3rem;
-      margin-bottom: 0.3rem;
-      border-radius: 5%;
-      border-radius: 8px;
-      border: solid 0.5px grey;
-      width: 100%;
-   }
-}

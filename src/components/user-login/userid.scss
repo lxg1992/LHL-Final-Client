@@ -1,0 +1,18 @@
+.userid--layout {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: auto;
+   .joincreateForm {
+      display: flex;
+      width: 100vw;  
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      Button {
+         margin-top: 2rem;
+         width: 20rem;
+      }
+   }
+}
+
+

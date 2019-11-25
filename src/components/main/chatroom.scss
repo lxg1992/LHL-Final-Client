@@ -1,0 +1,19 @@
+.chatroom {
+   grid-column: 1/2;
+   margin-left: 3rem;
+   .topic {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 1rem;
+   }
+   h3 {
+      border-bottom: 1px solid lightgray;
+      text-align: center;
+   }
+   .chatroom-question {
+      height: 50vh;
+      overflow: scroll;
+      resize: none;
+      border: 1px solid lightgray;
+   }  
+}

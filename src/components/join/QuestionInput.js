@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TagList from "./TagList";
 import Button from '@material-ui/core/Button';
+import "./questioninput.scss";
 class QuestionInput extends Component {
   constructor(props) {
     super(props);
@@ -65,14 +66,14 @@ class QuestionInput extends Component {
 
   render() {
     return (
-      <div>
+      <div className="question--input">
         <h1>What are your questions?</h1>
         {console.log(this.state)}
 
         <form onSubmit={this.handleSubmit}>
           <TagList tagList={this.props.tagList} handleCheck={this.handleCheck} />
-          <input type="text" name="question" />
-          <Button variant="outlined" color="primary">Submit</Button>
+          <textarea className="input--question" type="text" name="question" wrap="hard" placeholder="please enter your quesition here"/>
+          <Button variant="contained" color="primary">Submit</Button>
         </form>
 
       </div>
