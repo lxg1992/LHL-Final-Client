@@ -4,6 +4,8 @@ import Main from "../main";
 import Login from "../login";
 import Create from "../create/Create";
 import Join from "../join/Join";
+import QuestionOutput from "../create/QuestionOutput"
+import Dashboard from "../create/Dashboard";
 import {
   BrowserRouter as Router,
   Switch,
@@ -30,7 +32,10 @@ export default function App() {
             <Join/>
           </Route>
           <Route path="/main">
-            <Main/>
+            <QuestionOutput/>
+          </Route>
+          <Route path ="/dashboard">
+          <Dashboard/>
           </Route>
         </Switch>
     </Router>

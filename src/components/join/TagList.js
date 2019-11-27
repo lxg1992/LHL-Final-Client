@@ -4,7 +4,8 @@ import Tag from "./Tag";
 function TagList(props){
   return (
   props.tagList.map((tag) => {
-    return<Tag key = {tag.id} name = {tag.name} value = {tag.name} handleCheck = {props.handleCheck}/>
+    let tagField = Object.keys(tag);
+    return <Tag key = {tagField} name = {tagField} value = {tagField} id = {tagField} handleCheck = {props.handleCheck}/>
   })
   )
 }

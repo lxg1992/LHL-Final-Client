@@ -63,7 +63,7 @@ function QuestionOutput(props) {
   const hash = "m8dba"
 
   useEffect(() => {
-    axios.get(`http://172.46.2.148:3001/rooms/${hash}/questions`)
+    axios.get(`/rooms/${hash}/questions`)
       .then(res => {
         if (res.data !== questions)
           setQuestions(res.data);
@@ -74,7 +74,7 @@ function QuestionOutput(props) {
     useEffect(() => {
       const timer = setInterval(() => {
         console.log("5 seconds have passed");
-      axios.get(`http://172.46.2.148:3001/rooms/${hash}/questions`)
+      axios.get(`/rooms/${hash}/questions`)
         .then(res => {
           if(!res.data.error){
           console.log(res)
