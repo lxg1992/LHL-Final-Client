@@ -15,7 +15,7 @@ export default function ChangeForm() {
       <p className="tag">Confirm your new password</p>
       <input placeholder=" Confirm password"></input>
       <div className = "confirmChangeForm">
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" type="submit">
           Confirm
         </Button>
       </div>
