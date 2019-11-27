@@ -14,7 +14,7 @@ export default function Userid() {
           <Button className="create--button" color="primary" variant="contained">CREATE</Button>
         </Link>
         <Link to="/join">
-          <Button className="join--button" color="primary" variant="contained" Link to="/Create">JOIN</Button>
+          <Button className="join--button" color="primary" variant="contained">JOIN</Button>
         </Link>
       </div>
     </div>
