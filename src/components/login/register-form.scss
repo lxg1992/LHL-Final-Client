@@ -19,4 +19,14 @@
       border: solid 0.5px grey;
       width: 100%;
    }
+
+   input.error {
+      border-color: rgb(224, 61, 78);
+   }
+
+   .input-feedback {
+      color: rgb(235, 54, 54);
+      font-size: 14px;
+      margin-bottom: 20px;
+   }
 }

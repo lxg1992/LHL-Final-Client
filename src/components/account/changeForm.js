@@ -9,7 +9,7 @@ export default function ChangeForm() {
       <p className="tag">Username</p>
       <input type="text" disabled placeholder="@Username"></input>
       <p className="tag">Email</p>
-      <input type="text" disable placeholder="@Email"></input>
+      <input type="text" disabled placeholder="@Email"></input>
       <p className="tag">New password</p>
       <input placeholder=" New password"></input>
       <p className="tag">Confirm your new password</p>

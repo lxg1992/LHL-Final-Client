@@ -28,4 +28,14 @@
    button {
       margin: 1rem auto;
    }
+
+   input.error {
+      border-color: rgb(224, 61, 78);
+   }
+
+   .input-feedback {
+      color: rgb(235, 54, 54);
+      font-size: 14px;
+      margin-bottom: 20px;
+   }
 }

@@ -9,33 +9,18 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useParams,
-  useRouteMatch
 } from "react-router-dom";
 
 export default function App() {
   return (
     <Router>
         <Switch>
-          <Route exact path="/">
-            <Login />
-          </Route>
-          <Route path="/account">
-            <Account/>
-          </Route>
-          <Route path="/userID">
-            <Userid/>
-          </Route>
-          <Route path="/create">
-            <Create/>
-          </Route>
-          <Route path="/join">
-            <Join/>
-          </Route>
-          <Route path="/main">
-            <Main/>
-          </Route>
+          <Route exact path="/" component={Login} />
+          <Route path="/account" component={Account} />
+          <Route path="/userID" component={Userid} />
+          <Route path="/create" component={Create} />
+          <Route path="/join" component={Join} />
+          <Route path="/main" component={Main} />
         </Switch>
     </Router>
   );
