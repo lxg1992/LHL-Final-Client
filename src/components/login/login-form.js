@@ -2,9 +2,7 @@ import React from "react";
 import "./login-form.scss";
 import Button from "@material-ui/core/Button";
 import { Formik } from "formik";
-// import EmailValidator from "email-validator";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
 
 const LoginForm = () => (
   <Formik
