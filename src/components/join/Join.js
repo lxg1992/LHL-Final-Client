@@ -1,15 +1,28 @@
-import React from "react"
-import QuestionInput from './QuestionInput';
+import React, { useState } from "react";
+import QuestionInput from "./QuestionInput";
+import { Redirect } from 'react-router-dom';
 import Nav from "../login/Nav";
-import "./join.scss";
 
-export default function Join() {
-  let tagList = [{id: 1, name: "Ruby"}, {id: 2, name: "Javascript"}, {id: 3, name: "SQL"}, {id: 4, name: "Python"}, {id:5, name: "Coding"}]; 
-  return (
-    
-    <div className ="create--question">
-      <Nav/>
-      <QuestionInput tagList = {tagList}/>
-    </div>
-  );
+export default function Join(props){
+const[roomHash, setRoomHash ] = useState();
+
+function handleSubmit(e){
+  e.preventDefault();
+  console.log(e.target.elements.roomHash.value);
+  let roomHash = e.target.elements.roomHash.value;
+  setRoomHash(roomHash);
+  // return <Redirect to='/target' />
+}
+return(
+  <div className ="create--question">
+    <Nav/>
+  {roomHash ? <QuestionInput roomHash = {roomHash} /> :
+  <form onSubmit={handleSubmit}>
+  <h1>Please enter the room you'd like to join.</h1>
+  <input type = "text" name ="roomHash"/>
+  <button>Submit</button>
+  </form>
+  }
+  </div>
+)
 }
