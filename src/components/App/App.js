@@ -6,6 +6,7 @@ import Create from "../create/Create";
 import Join from "../join/Join";
 import QuestionOutput from "../create/QuestionOutput"
 import Dashboard from "../create/Dashboard";
+import Cookies from "universal-cookie";
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,11 +17,14 @@ import {
 } from "react-router-dom";
 
 export default function App() {
+
+
+ 
   return (
     <Router>
         <Switch>
           <Route exact path="/">
-            <Login />
+            <Main />
           </Route>
           <Route path="/userID">
             <Userid/>
@@ -36,6 +40,9 @@ export default function App() {
           </Route>
           <Route path ="/dashboard">
           <Dashboard/>
+          </Route>
+          <Route path ="/login">
+          <Login/>
           </Route>
         </Switch>
     </Router>

@@ -2,26 +2,32 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import TagList from "./TagList";
+import Cookies from "universal-cookie";
 class QuestionInput extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
-
-
+    const cookie = new Cookies();
     this.state = {
-      user_id: 3,
+      guest_id: cookie.get("user_id"),
       messages: [],
       tags: [],
-      hash: "m8dba"
+      hash: props.roomHash
     }
+    // this.state = {
+    //   guest_id: cookie.get("user_id"),
+    //   messages: [],
+    //   tags: [],
+    //   hash: "abces"
+    // }
   }
 
 
   componentDidMount() {
-    axios.get("/rooms/")
+    axios.get(`/rooms/${this.state.hash}/tags`)
       .then(res => {
-        // console.log(res.data[0].tags_created);
+        console.log(res.data[0].tags_created);
         let tagList = res.data[0].tags_created;
         let checkboxes = tagList.map(value => {
           return { [value]: false }
@@ -74,7 +80,7 @@ class QuestionInput extends Component {
       )
     }, () => {
       let output = {
-        user_id: this.state.user_id,
+        guest_id: this.state.guest_id,
         message: this.state.messages[0].message,
         tags: this.state.messages[0].tags
       }

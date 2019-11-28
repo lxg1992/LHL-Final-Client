@@ -1,11 +1,36 @@
 import React from "react"
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch
+} from "react-router-dom";
 export default function Main () {
    return (
-     <div>
-       <h2>Main</h2>
-       <h3>CHAT ROOM</h3>
-       <h3>TABLE QuESTION</h3>
-     </div>
+    <div>
+  
+    <ul>
+      <li>
+      <Link to='/userid'>useriD</Link>
+      </li>
+      <li>
+      <Link to='/create'>create</Link>
+      </li>
+      <li>
+      <Link to='/join'>join</Link>
+      </li>
+      <li>
+      <Link to='/main'>main</Link>
+      </li>
+      <li>
+      <Link to="/dashboard">dashboard</Link>
+      </li>
+      <li>
+      <Link to ="/login">Login</Link>
+      </li>
+    </ul>
+  </div>
    );
  }

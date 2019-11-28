@@ -3,14 +3,23 @@ import axios from "axios";
 import RoomList from "./RoomList";
 import CreateRoom from "./CreateRoom";
 import { create } from "domain";
+import Cookies from "universal-cookie";
 function Dashboard(props) {
-  const [user, setUser] = useState(1);
+  const cookie = new Cookies();
+  let [user, setUser] = useState(cookie.get("user_id"));
   const [pastRooms, setPastRooms] = useState([]);
   const [currentRooms, setCurrentRooms] = useState([]);
   const [futureRooms, setFutureRooms] = useState([]);
   // const [createButtonClicked, setCreateButtonClicked] = useState(false)
   const [unusedState, setUnusedState] = useState();
   const forceUpdate = useCallback(() => setUnusedState({}), []);
+  // console.log(cookie.get("token"));
+  // console.log(cookie.get("user_id"));
+  // setUser(user = cookie.get("user_id"))
+
+  // if(cookie){
+  //   console.log(cookie);
+  // }
   useEffect(() => {
     Promise.all(
     [
