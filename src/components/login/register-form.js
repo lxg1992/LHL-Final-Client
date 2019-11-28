@@ -6,7 +6,7 @@ import * as Yup from "yup";
 
 const RegisterForm = () => (
   <Formik
-    initialValues={{email: "", password: "", confirmPassword: ""}}
+    initialValues={{first_name: "", last_name: "", email: "", password: "", confirmPassword: ""}}
     onSubmit={(values, {setSubmitting}) => {
       setTimeout(() => {
         console.log("register done", values)
@@ -15,6 +15,10 @@ const RegisterForm = () => (
     }}
 
     validationSchema = {Yup.object().shape({
+      first_name:Yup.string()
+      .required("Required"),
+      last_name:Yup.string()
+      .required("Required"),
       email:Yup.string()
         .email()
         .required("Required"),
@@ -22,8 +26,8 @@ const RegisterForm = () => (
         .required("No password provided.")
         .min(5, "Password is too short - should be 5 chars minimum."),
         confirmPassword: Yup.string()
-        .oneOf([Yup.ref('password'), null])
         .required('Password confirm is required')
+        .oneOf([Yup.ref('password')])
     })}
   >
 
@@ -40,6 +44,32 @@ const RegisterForm = () => (
   return (
     <form className="login--Rform" onSubmit={handleSubmit}>
       <h2>REGISTER</h2>
+      <label className = "tag">First name</label>
+      <input 
+      placeholder=" Enter your first name"
+      name="first_name"
+      type="text"
+      value = { values.first_name }
+      onChange = {handleChange}
+      className={errors.first_name && touched.first_name && "error"}
+      />
+      {errors.first_name && touched.first_name && (
+      <div className="input-feedback">{errors.first_name}</div>
+      )}
+
+      <label className = "tag">Last name</label>
+      <input 
+      placeholder=" Enter your last name"
+      name="last_name"
+      type="text"
+      value = { values.last_name }
+      onChange = {handleChange}
+      className={errors.last_name && touched.last_name && "error"}
+      />
+      {errors.last_name && touched.last_name && (
+      <div className="input-feedback">{errors.last_name}</div>
+      )} 
+      
       <label className = "tag">Email</label>
       <input 
       placeholder=" Enter your email"
@@ -75,8 +105,8 @@ const RegisterForm = () => (
       onChange = {handleChange}
       className={errors.confirmPassword && touched.confirmPassword && "error"}
       />
-      {errors.email && touched.email && (
-      <div className="input-feedback">{errors.email}</div>
+      {errors.confirmPassword && touched.confirmPassword && (
+      <div className="input-feedback">Please confirm your password</div>
       )}        
 
       <div className="button--register">
