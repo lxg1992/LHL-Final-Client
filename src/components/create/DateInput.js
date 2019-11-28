@@ -50,7 +50,7 @@ function DateInput(props) {
           To: <input type="time" name="time_end" />
           <button>Set times and dates</button>
         </form>
-        <button onClick = {props.reset}>buagb</button>
+        <button onClick = {props.reset}>BACK</button>
         </div>
       }
       </div>
