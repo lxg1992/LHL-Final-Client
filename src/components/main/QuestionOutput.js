@@ -100,7 +100,7 @@ function QuestionOutput(props) {
   return (
     <div>
       {console.log(questions)}
-      <h1>Questions feed</h1>
+ 
       {questions.length > 0 && <QuestionList questions={questions}></QuestionList>}
     </div>
   );

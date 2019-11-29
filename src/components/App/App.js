@@ -14,6 +14,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect
 } from "react-router-dom";
 
 // <Route exact path="/" component={Login} />
@@ -24,7 +25,7 @@ export default function App() {
     <Router>
         <Switch>
           <Route exact path="/" component={Root} />
-
+          {!cookie.get("tokin") && <Redirect to="/"/>}
           <Route path="/account" component={Account} />
           <Route path="/userID" component={Userid} />
           <Route path="/create" component={Create} />
