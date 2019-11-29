@@ -2,8 +2,12 @@ import React, {useState, useEffect, useCallback} from "react";
 import axios from "axios";
 import RoomList from "./RoomList";
 import CreateRoom from "./CreateRoom";
+import "./Dashboard.scss";
 import { create } from "domain";
 import Cookies from "universal-cookie";
+import "./Rooms.scss";
+
+
 function Dashboard(props) {
   const cookie = new Cookies();
   let [user, setUser] = useState(cookie.get("user_id"));
@@ -59,19 +63,25 @@ function Dashboard(props) {
    
   }
   return(
-    <div>
-    <CreateRoom forceUpdate = {forceUpdate}/>
+    <div className="dashboard--container">
+      <CreateRoom forceUpdate = {forceUpdate}/>
+      <div className = "display--rooms">
+        <div className = "content--room">
+          <div className ="title title--current">Current Rooms</div>
+          <RoomList key = "currentRooms" rooms = {currentRooms} handleDelete ={handleDelete}/> 
+        </div>
 
-    <h1>Current Rooms:</h1>
-    {
-      // console.log("This is future rooms from the dashboard", currentRooms)
-    }
-    
-    <RoomList key = "currentRooms" rooms = {currentRooms} handleDelete ={handleDelete}/> 
-    <h1>Future Rooms:</h1>
-    <RoomList key = "futureRooms" rooms = {futureRooms} handleDelete ={handleDelete} />
-    <h1>Archived:</h1>
-    <RoomList key = "pastRooms" rooms = {pastRooms} />
+        <div className = "content--room">
+          <div className ="title title--upcoming">Upcoming Rooms</div>
+          <RoomList key = "futureRooms" rooms = {futureRooms} handleDelete ={handleDelete} />
+        </div>
+
+        <div className = "content--room">
+          <div className ="title title--past">Archived</div>
+          <RoomList className="room__past" key = "pastRooms" rooms = {pastRooms} />
+        </div>
+      </div>
+      
     </div>
   )
 }

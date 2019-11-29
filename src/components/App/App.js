@@ -25,7 +25,7 @@ export default function App() {
     <Router>
         <Switch>
           <Route exact path="/" component={Root} />
-          {!cookie.get("tokin") && <Redirect to="/"/>}
+          {!cookie.get("token") && <Redirect to="/"/>}
           <Route path="/account" component={Account} />
           <Route path="/userID" component={Userid} />
           <Route path="/create" component={Create} />

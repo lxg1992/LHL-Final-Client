@@ -5,11 +5,15 @@
    box-sizing: border-box;
    margin: 0;
    padding: 0;
+   ul {
+      list-style-type: none;
+   }
 }
 
 body {
    height: 100%;
    width: 100vw;
    font-family: 'Playfair Display', serif;
+   background: rgb(238, 238, 238);
 }
 

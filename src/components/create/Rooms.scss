@@ -1,0 +1,18 @@
+.room {
+   padding: 1rem 3rem 1rem 1rem;
+   margin: 1rem auto 1rem;
+   border-radius: 10px;
+   box-shadow: 0px 1px 2px -1px rgba(0,0,0,0.2), 0px 2px 3px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
+   position: relative;
+   padding-bottom: 3rem;
+   .deleteRoom {
+      background: rgb(212, 49, 51);
+      color: white;
+      position: absolute;
+      bottom: 0.75rem;
+      right: 0.75rem;
+   }
+   .deleteRoom:hover {
+      background: rgb(255, 41, 37);
+   }
+}
