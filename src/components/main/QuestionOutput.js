@@ -60,7 +60,7 @@ import QuestionList from "./QuestionList"
 
 function QuestionOutput(props) {
   const [questions, setQuestions] = useState([]);
-  const hash = "abces"
+  const hash = "abces";
 
   useEffect(() => {
     axios.get(`/rooms/${hash}/questions`)

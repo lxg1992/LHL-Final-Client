@@ -41,7 +41,7 @@ function DateInput(props) {
     { backButtonClicked && <NameInput />}
     {console.log("Starting time", datetimeStart)}
     {console.log("Ending time", datetimeEnd)}
-      {submitHandled ? <TopicInput datetimeStart = {datetimeStart} datetimeEnd = {datetimeEnd} name = {props.name} reset = {reset}/> :
+      {submitHandled ? <TopicInput datetimeStart = {datetimeStart} datetimeEnd = {datetimeEnd} name = {props.name} reset = {reset} reinitializeEverything = {props.reinitializeEverything} handleCreateRoomComplete={props.handleCreateRoomComplete}/> :
       <div>  
       <form onSubmit={handleDateSubmit}>
           <h4>When would you like to start?</h4>

@@ -104,12 +104,14 @@ class TopicInput extends Component {
   }
   handleCreateRoom() {
     // console.log("akgkdfnkgs");
-
+    // window.location.reload()
+    
     axios.post("rooms/", this.state)
       .then(res => {
         // console.log(res.data.room_hash);
         console.log(res.data[0].room_hash);
-      }).then(() => window.location.reload())
+      })
+      .then(() => this.props.handleCreateRoomComplete());
       //implement soft refresh
   }
   render() {
@@ -128,7 +130,7 @@ class TopicInput extends Component {
         // </form>
         }
         <h1>Add Topics</h1>
-        {this.state.topics.length > 0 && <TopicList topics={this.state.topics} handleDelete={this.handleDelete} />}
+        {this.state.topics.length > 0 && <TopicList topics={this.state.topics} handleDelete={this.handleDelete}  />}
         <form onSubmit={this.handleSubmit}>
           <input type="text" name="topic" />
           <button>Submit</button>

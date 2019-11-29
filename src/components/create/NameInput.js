@@ -24,7 +24,7 @@ function NameInput(props) {
     <div>
       { backButtonClicked && <CreateRoom />}
       
-      { !backButtonClicked && nameSubmitted ? <DateInput name={roomName} reset = {reset}/> :
+      { !backButtonClicked && nameSubmitted ? <DateInput name={roomName} reset = {reset} reinitializeEverything = {props.reinitializeEverything} handleCreateRoomComplete={props.handleCreateRoomComplete}/> :
         <div>
         <form onSubmit={handleSubmit}>
         <h4>What would you like to call your room?</h4>

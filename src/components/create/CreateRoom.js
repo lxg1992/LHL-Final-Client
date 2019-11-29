@@ -16,7 +16,7 @@ function CreateRoom(props){
     <div>
     {console.log(createButtonClicked)}
     { !props.backButtonClicked && <h1>Create a Room</h1>}
-    {createButtonClicked ? <NameInput reset ={reset} /> :  <button onClick = {() => setCreateButtonClicked(!createButtonClicked)}>Create</button>}
+    {createButtonClicked ? <NameInput reset ={reset} reinitializeEverything = {props.reinitializeEverything} handleCreateRoomComplete={props.handleCreateRoomComplete} /> :  <button onClick = {() => setCreateButtonClicked(!createButtonClicked)}>Create</button>}
     
     
     </div>
