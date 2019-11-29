@@ -3,13 +3,13 @@ import Nav from "../login/Nav";
 import "./main.scss";
 import Chatroom from "./chatroom";
 import Table from "./table";
+import QuestionOutput from "./QuestionOutput";
 
 export default function Main() {
   return (
     <div className="mainPage">
       <Nav/>
       <Chatroom/>
-      <Table/>
     </div>
   );
 }

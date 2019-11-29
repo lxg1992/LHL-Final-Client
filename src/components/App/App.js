@@ -7,9 +7,9 @@ import Login from "../login/login";
 import Create from "../create/Create";
 import Join from "../join/Join";
 import Account from "../account/Account";
-import QuestionOutput from "../create/QuestionOutput"
 import Dashboard from "../create/Dashboard";
 import Cookies from "universal-cookie";
+import Main from "../main/main";
 import {
   BrowserRouter as Router,
   Switch,
@@ -29,7 +29,7 @@ export default function App() {
           <Route path="/userID" component={Userid} />
           <Route path="/create" component={Create} />
           <Route path="/join" component={Join} />
-          <Route path="/main" component={QuestionOutput} />
+          <Route path="/main" component={Main} />
           <Route path="/dashboard" component={Dashboard} />
 
         </Switch>

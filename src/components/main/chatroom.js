@@ -1,5 +1,7 @@
 import React from "react";
 import "./chatroom.scss";
+import "./QuestionOutput";
+import QuestionOutput from "./QuestionOutput";
 export default function Chatroom () {
    return (
       <div className="chatroom">
@@ -10,6 +12,7 @@ export default function Chatroom () {
          </div>
          <div className="chatroom-question">
             <h3>Chatroom</h3>
+            <QuestionOutput/>
          </div>
       </div>
    )
