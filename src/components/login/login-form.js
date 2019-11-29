@@ -7,9 +7,11 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 
 const LoginForm = () => (
+  
 
   <Formik
-  
+   
+
     initialValues={{ email: "", password: "" }}
     onSubmit={(values, { setSubmitting }) => {
       axios.post(`users/login`, {email: values.email, password: values.password })
@@ -19,12 +21,13 @@ const LoginForm = () => (
         console.log(res.data.token);
         cookies.set("user_id", res.data.user[0].id, {path: "/"});
         cookies.set("token", res.data.token, {path: '/'})
+        cookies.set("email", res.data.user[0].email, {path: "/"});
       })
       .then (res => {
         window.location = "/userid"
       })
     }}
-  
+    
     validationSchema={Yup.object().shape({
       email: Yup.string()
         .email()
@@ -46,6 +49,7 @@ const LoginForm = () => (
       } = props
       
     return ( 
+      
       <form className="login--Lform" onSubmit={handleSubmit}>
         <h2>LOGIN</h2>
         <label className = "tag">Email</label>

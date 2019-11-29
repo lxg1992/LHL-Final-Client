@@ -2,11 +2,14 @@ import React from "react";
 import "./Nav.scss";
 import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
+import Cookies from "universal-cookie";
 
 export default function Nav(props) {
-
-   const handleLogout = () => () => {
+   const cookie = new Cookies();
+   
+   const handleLogout = () => {
       console.log('you have been logged out');
+      
    };
 
    return (
@@ -15,11 +18,11 @@ export default function Nav(props) {
             LOGO
          </div>
          <div className="nav--right">
-            <Button variant="outlined" color="primary" className="guest">Login as Guest?</Button>
+            {!cookie.get("email") && <Button variant="outlined" color="primary" className="guest">Login</Button>}
             <Link to="/Account">
-               <div>Login as <span> {props.email} </span></div>
+               {cookie.get("email") && <div>Logged in as: <span> {cookie.get("email")} </span></div>}
             </Link>
-            <Button variant="outlined" color="primary" onClick={handleLogout()}>logout</Button>
+            {cookie.get("email") && <Button variant="outlined" color="primary" onClick={handleLogout()}>logout</Button> }
             
          </div>
       </div>
