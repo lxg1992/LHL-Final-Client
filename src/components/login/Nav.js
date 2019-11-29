@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function Nav(props) {
 
-   const handleLogout = () => () => {
+   const handleLogout = () => {
       console.log('you have been logged out');
    };
 
