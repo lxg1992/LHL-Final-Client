@@ -12,7 +12,7 @@ class QuestionInput extends Component {
     this.handleCheck = this.handleCheck.bind(this);
     const cookie = new Cookies();
     this.state = {
-      guest_id: cookie.get("user_id"),
+      guest_id: props.guestId,
       messages: [],
       tags: [],
       hash: props.roomHash

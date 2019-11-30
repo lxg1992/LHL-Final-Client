@@ -13,8 +13,8 @@ function DateInput(props) {
     let startTime = e.target.elements.time_start.value;
     let endTime = e.target.elements.time_end.value;
 
-    let startingDate = new Date(startDate + "T" + startTime + ":00Z");
-    let endingDate = new Date(startDate + "T" + endTime + ":00Z")
+    let startingDate = new Date(startDate + "T" + startTime + ":00");
+    let endingDate = new Date(startDate + "T" + endTime + ":00")
     // console.log(startingDate);
     // console.log(endingDate);
     // this.setState(() => {
