@@ -1,25 +1,31 @@
 .question--input {
    display: flex;
    flex-direction: column;
-   width: 100vw;
-   align-items: center;
-   justify-content: space-around;
+   margin-top: 5rem;
    form {
+      margin: 5rem auto;
       display: flex;
       flex-direction: column;
-      width: 30%;
+      h1 {
+         text-align: center;
+      }
       .tag--join {  
-         margin-top: 0.5rem;
+         margin: auto 5rem 1rem;
+         line-height: 2rem;
+         border: 1px lightgray solid;
+         border-radius: 10px;
       }
       .input--question {
-         width: 100%;
-         height: 5rem;
-         overflow: scroll;
-         resize: none;
-         margin-top: 1rem;
+         margin: auto 2rem 1rem;
+         line-height: 2rem;
+         border: 1px lightgray solid;
+         border-radius: 10px;
       }
       Button {
-         margin-top: 1rem;
+         width: 5rem;
+         margin: auto;
+         background: rgb(24, 176, 73);
+         color: white;
       }
    }
 }

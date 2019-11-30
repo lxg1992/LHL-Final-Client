@@ -4,6 +4,9 @@ import RoomList from "./RoomList";
 import CreateRoom from "./CreateRoom";
 import { create } from "domain";
 import Cookies from "universal-cookie";
+import "./Dashboard.scss";
+import "./Rooms.scss";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -65,14 +68,14 @@ function Dashboard(props) {
             Promise.resolve(axios.get(`users/${user}/rooms/current`)),
             Promise.resolve(axios.get(`users/${user}/rooms/future`)),
             Promise.resolve(axios.get(`users/${user}/rooms/past`))])
-        .then(res => {
-          // console.log(res[0].data)
-          // console.log(res[1].data)
+          .then(res => {
+            // console.log(res[0].data)
+            // console.log(res[1].data)
 
-          setCurrentRooms(res[0].data);
-          setFutureRooms(res[1].data);
-          setPastRooms(res[2].data);
-        })
+            setCurrentRooms(res[0].data);
+            setFutureRooms(res[1].data);
+            setPastRooms(res[2].data);
+          })
       })
     // let timeNow = new Date();
     //   let timeComparator = new Date(timeStarted.replace(' ', 'T'));
@@ -137,27 +140,38 @@ function Dashboard(props) {
         console.log(res);
         setRoomHash(res.data[0].room_hash)
         // setRoomRedirect(true);
-        history.push({pathname: "/main", state: {roomHash: res.data[0].room_hash, tags_created: res.data[0].tags_created}})
+        history.push({ pathname: "/main", state: { roomHash: res.data[0].room_hash, tags_created: res.data[0].tags_created } })
       })
   }
   // }
   return (
-    <div>
+    <div className="dashboard--container">
       {
         // roomRedirect && <Link to={{ pathname: '/main', state: { hash: roomHash }}} />
       }
+
       <CreateRoom key={reinitialize} reinitializeEverything={reinitializeEverything} handleCreateRoomComplete={handleCreateRoomComplete} />
 
-      <h1>Current Rooms:</h1>
+
       {
         // console.log("This is future rooms from the dashboard", currentRooms)
       }
+      <div className="display--rooms">
+        <div className="content--room">
+          <div className="title title--current">Current Rooms</div>
+          <RoomList key="currentRooms" rooms={currentRooms} handleDelete={handleDelete} handleRoomActivation={handleRoomActivation} />
+        </div>
 
-      <RoomList key="currentRooms" rooms={currentRooms} handleDelete={handleDelete} handleRoomActivation={handleRoomActivation} />
-      <h1>Future Rooms:</h1>
-      <RoomList key="futureRooms" rooms={futureRooms} handleDelete={handleDelete} />
-      <h1>Archived:</h1>
-      <RoomList key="pastRooms" rooms={pastRooms} />
+        <div className="content--room">
+          <div className="title title--upcoming">Future Rooms</div>
+          <RoomList key="futureRooms" rooms={futureRooms} handleDelete={handleDelete} />
+        </div>
+
+        <div className="content--room">
+          <div className="title title--past">Archived</div>
+          <RoomList className="room__past" key="pastRooms" rooms={pastRooms} />
+        </div>
+      </div>
     </div>
   )
 }

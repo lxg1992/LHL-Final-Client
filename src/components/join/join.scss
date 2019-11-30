@@ -1,5 +1,27 @@
 .create--question {
-   display: grid;
-   grid-template-columns: repeat(3, 1fr);
-   grid-template-rows: auto;
+   display: flex;
+   flex-direction: column;
+   .joinForm {
+      margin: 10rem auto;
+      h1 {
+         text-align: center;
+      }
+   }
+   .submitjoin {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      input {
+         margin: auto 5rem 1rem;
+         line-height: 2rem;
+         border: 1px lightgray solid;
+         border-radius: 10px;
+      }
+      button {
+         width: 5rem;
+         margin: auto;
+         background: rgb(24, 176, 73);
+         color: white;
+      }
+   }
 }

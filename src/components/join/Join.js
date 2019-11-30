@@ -4,6 +4,8 @@ import { Redirect } from 'react-router-dom';
 import Nav from "../login/Nav";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import "./join.scss";
+import Button from "@material-ui/core/Button";
 
 export default function Join(props){
 const [roomHash, setRoomHash ] = useState();
@@ -31,10 +33,12 @@ return(
   <div className ="create--question">
     <Nav/>
   {roomHash && guestId ? <QuestionInput roomHash = {roomHash} guestId = {guestId} /> :
-  <form onSubmit={handleSubmit}>
+  <form className ="joinForm" onSubmit={handleSubmit}>
   <h1>Please enter the room you'd like to join.</h1>
+  <div className="submitjoin">
   <input type = "text" name ="roomHash"/>
-  <button>Submit</button>
+  <Button type ="submit" variant="contained">Join</Button>
+  </div>
   </form>
   }
   </div>

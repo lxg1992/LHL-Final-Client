@@ -1,0 +1,90 @@
+.name__container {
+   padding: 1rem 2rem;
+   .nameinput {
+      form {
+         display: flex;
+         flex-direction: column;
+         flex-wrap: nowrap;
+      }
+      .insert__name {
+         flex: 1;
+         width: 80%;
+         margin: 1rem auto;
+         line-height: 2rem;
+         border-radius: 8px;
+         border: solid 0.5px lightgrey;
+      }
+      .button--name {
+         flex: 1;
+         display: flex;
+         margin: auto 3rem;
+         flex-wrap: nowrap;
+         justify-content: space-between;
+      }
+      .button--time {
+         flex: 1;
+         display: flex;
+         margin: auto 1rem;
+         flex-wrap: nowrap;
+         justify-content: space-between;
+      }
+      .input_date {
+         margin-bottom: 1rem;
+      }
+      .submit {
+         background: rgb(108, 211, 175);
+         color: white;
+         margin-left: 1rem;
+      }
+   }
+   .complete {
+      background: rgb(24, 200, 78);
+      color: white;
+      margin-left: 1rem;
+   }
+   .complete:hover {
+      background: rgb(46, 231, 102);
+   }
+   .add {
+      border: 1px solid rgb(255, 152, 0);
+      color: rgb(255, 152, 0);
+      padding: 1px;
+      margin-left: 1rem;
+   }
+   .add:hover {
+      background: rgb(255, 152, 0);
+      color: white;
+   }
+   .topic_input {
+      display: flex;
+      flex-direction: column;
+      form {
+         padding: 1rem 0rem 0.5rem 0rem;
+         input {
+            width: 70%;
+            line-height: 2rem;
+            border-radius: 5px;
+            border: 1px lightgray solid;
+         }
+      }
+   }
+   .topicitems {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      padding-right: 10%;
+      margin: 0.7rem 0rem;
+      padding: 1rem 0rem;
+      font-size: 1.2rem;
+      border-bottom: 1px solid lightgray;
+      button {
+         padding: 0;
+         color: rgb(212, 49, 51);
+         text-decoration: underline;
+      }
+   }
+   .topicitems:hover button {
+      background: rgb(212, 49, 51);
+      color: white;
+   }
+}
