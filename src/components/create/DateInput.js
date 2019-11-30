@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import TopicInput from "./TopicInput";
 import "./DateInput.scss";
 import NameInput from "./NameInput";
+import "./DateInput.scss";
 import "./Nameinput.scss";
 import Button from "@material-ui/core/Button";
-
 function DateInput(props) {
   const [datetimeStart, setDatetimeStart] = useState();
   const [datetimeEnd, setDatetimeEnd] = useState();
@@ -17,8 +17,8 @@ function DateInput(props) {
     let startTime = e.target.elements.time_start.value;
     let endTime = e.target.elements.time_end.value;
 
-    let startingDate = new Date(startDate + "T" + startTime + ":00Z");
-    let endingDate = new Date(startDate + "T" + endTime + ":00Z")
+    let startingDate = new Date(startDate + "T" + startTime + ":00");
+    let endingDate = new Date(startDate + "T" + endTime + ":00")
     // console.log(startingDate);
     // console.log(endingDate);
     // this.setState(() => {
@@ -34,7 +34,7 @@ function DateInput(props) {
     setSubmitHandled(true);
   }
 
-  function reset(){
+  function reset() {
     setDatetimeStart();
     setDatetimeEnd();
     setSubmitHandled(false);
@@ -42,25 +42,25 @@ function DateInput(props) {
   }
   return (
     <div>
-    { backButtonClicked && <NameInput />}
-    {console.log("Starting time", datetimeStart)}
-    {console.log("Ending time", datetimeEnd)}
-      {submitHandled ? <TopicInput datetimeStart = {datetimeStart} datetimeEnd = {datetimeEnd} name = {props.name} reset = {reset}/> :
-      <div className = "nameinput">  
-      <h4>When would you like to start?</h4>
-      <form onSubmit={handleDateSubmit}>
-          Starting on: <input className ="input_date" type="date" name="date_start" />
-          From: <input className ="input_date" type="time" name="time_start" />
-          To: <input className ="input_date" type="time" name="time_end" />
-
-          <div className="button--time">    
-            <Button variant="contained" color="primary" onClick = {props.reset}>BACK</Button>
-            <Button variant="contained" className="submit" type="submit">Set times and dates</Button>
-          </div>
-        </form>
+      {backButtonClicked && <NameInput />}
+      {console.log("Starting time", datetimeStart)}
+      {console.log("Ending time", datetimeEnd)}
+      {submitHandled ? <TopicInput datetimeStart={datetimeStart} datetimeEnd={datetimeEnd} name={props.name} reset={reset} reinitializeEverything={props.reinitializeEverything} handleCreateRoomComplete={props.handleCreateRoomComplete} /> :
+        <div className="nameinput">
+        <h4>When would you like to start?</h4>
+          <form onSubmit={handleDateSubmit}>
+            Starting on: <input className="input_date" type="date" name="date_start" />
+            From: <input className="input_date" type="time" name="time_start" />
+            To: <input className="input_date" type="time" name="time_end" />
+            
+            <div className="button--time">
+              <Button variant="contained" color="primary" onClick={props.reset}>BACK</Button>
+              <Button variant="contained" className="submit" type="submit">Set times and dates</Button>
+            </div>
+          </form>
         </div>
       }
-      </div>
+    </div>
   )
 }
 

@@ -4,10 +4,11 @@ import "./Create.scss";
 import Dashboard from "./Dashboard";
 
 export default function Create() {
+
   return (
     <div className="create--topic">
       <Nav/>
-      <Dashboard/>
+      <Dashboard />
     </div>
   );
 }

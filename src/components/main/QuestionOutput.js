@@ -60,8 +60,8 @@ import QuestionList from "./QuestionList"
 
 function QuestionOutput(props) {
   const [questions, setQuestions] = useState([]);
-  const hash = "abces"
-
+  const hash = window.history.state.state.roomHash;
+  console.log("This is the props being passed in", window.history.state.state.roomHash);
   useEffect(() => {
     axios.get(`/rooms/${hash}/questions`)
       .then(res => {
@@ -95,13 +95,21 @@ function QuestionOutput(props) {
   //     })
   // }, )
 
-
+function banUser(room_id, guest_id){
+  // let room_hash = hash;
+  console.log("This is the room hash", room_id)
+  console.log("This is the guest hash of user I want to ban", guest_id);
+  axios.patch("guests/ban", {room_id, guest_id})
+  .then(res => {
+    console.log("This is the ban user response", res);
+  })
+}
 
   return (
     <div>
       {console.log(questions)}
  
-      {questions.length > 0 && <QuestionList questions={questions}></QuestionList>}
+      {questions.length > 0 && <QuestionList questions={questions} banUser = {banUser}></QuestionList>}
     </div>
   );
 

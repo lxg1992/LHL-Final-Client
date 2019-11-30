@@ -106,12 +106,14 @@ class TopicInput extends Component {
   }
   handleCreateRoom() {
     // console.log("akgkdfnkgs");
-
+    // window.location.reload()
+    
     axios.post("rooms/", this.state)
       .then(res => {
         // console.log(res.data.room_hash);
         console.log(res.data[0].room_hash);
-      }).then(() => window.location.reload())
+      })
+      .then(() => this.props.handleCreateRoomComplete());
       //implement soft refresh
   }
   render() {
@@ -129,7 +131,7 @@ class TopicInput extends Component {
         //   <button>Set times and dates</button>
         // </form>
         }
-        <h2>Please add your today topics</h2>
+        <h2>Add Topics</h2>
         <form onSubmit={this.handleSubmit}>
           <input className="insert__name" type="text" name="topic" />
           <Button type="submit" className="add" variant="outlined">Add</Button>

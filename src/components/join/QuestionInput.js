@@ -12,7 +12,7 @@ class QuestionInput extends Component {
     this.handleCheck = this.handleCheck.bind(this);
     const cookie = new Cookies();
     this.state = {
-      guest_id: cookie.get("user_id"),
+      guest_id: props.guestId,
       messages: [],
       tags: [],
       hash: props.roomHash
@@ -124,7 +124,7 @@ class QuestionInput extends Component {
         <form onSubmit={this.handleSubmit}>
           <TagList tagList={this.state.tags} handleCheck={this.handleCheck} />
           <input className="input--question" type="text" name="question" wrap="hard" placeholder="please enter your quesition here" />
-          <button>Submit</button>
+          <Button type="submit" variant="contained">Submit</Button>
 
         </form>
 

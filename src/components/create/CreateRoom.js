@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import TopicInput from "./TopicInput";
 import DateInput from "./DateInput";
 import NameInput from "./NameInput";
-import AddBoxIcon from '@material-ui/icons/AddBox';
 import Button from "@material-ui/core/Button";
 
 function CreateRoom(props){
@@ -15,10 +14,14 @@ function CreateRoom(props){
 
 
   return(
-    <div className="create--room">
+    <div className ="create--room">
     {console.log(createButtonClicked)}
-    { !props.backButtonClicked}
-    {createButtonClicked ? <NameInput reset ={reset} /> :  <Button className="create_button" onClick = {() => setCreateButtonClicked(!createButtonClicked)}>Create new room</Button>}
+    { 
+      // !props.backButtonClicked && <h1>Create a Room</h1>
+    }
+    {createButtonClicked ? <NameInput reset ={reset} reinitializeEverything = {props.reinitializeEverything} handleCreateRoomComplete={props.handleCreateRoomComplete} /> :  <Button className="create_button" onClick = {() => setCreateButtonClicked(!createButtonClicked)}>Create a new room</Button>}
+    
+    
     </div>
   )
 }
