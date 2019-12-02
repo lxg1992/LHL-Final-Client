@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TopicList from "./TopicList";
 import axios from "axios";
+import Cookies from "universal-cookie";
 
 class TopicInput extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class TopicInput extends Component {
     this.handleDateSubmit = this.handleDateSubmit.bind(this);
     this.reset = this.reset.bind(this);
     this.resetWrapper = this.resetWrapper.bind(this);
+    const cookie = new Cookies();
     // const time_start = new Date();
     // const time_end = new Date();
     // time_end.setMinutes(time_start.getMinutes() + 40);
@@ -24,7 +26,7 @@ class TopicInput extends Component {
 
     // }
     this.state = {
-      host_id: 1,
+      host_id: cookie.get("user_id"),
       topics: [],
       room_name: props.name,
       room_hash: "fgsfds",

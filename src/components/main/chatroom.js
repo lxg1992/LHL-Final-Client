@@ -6,7 +6,7 @@ export default function Chatroom () {
    console.log("This is inside chatroom", window.history.state.state.tags_created);
    let tagsCreated = window.history.state.state.tags_created;
    let roomHash = window.history.state.state.roomHash;
-
+   
    return (
       <div className="chatroom">
          <h1>Room Hash: {roomHash}</h1>
@@ -19,6 +19,7 @@ export default function Chatroom () {
             <h3>Chatroom</h3>
             <QuestionOutput/>
          </div>
+         <button>Close room</button>
       </div>
    )
 }
