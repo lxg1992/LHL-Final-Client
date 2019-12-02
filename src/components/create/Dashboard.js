@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import RoomList from "./RoomList";
 import CreateRoom from "./CreateRoom";
+import "./Dashboard.scss";
 import { create } from "domain";
 import Cookies from "universal-cookie";
 import "./Dashboard.scss";

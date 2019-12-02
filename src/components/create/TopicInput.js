@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import TopicList from "./TopicList";
 import axios from "axios";
+import Button from "@material-ui/core/Button";
+import "./Nameinput.scss";
 import Cookies from "universal-cookie";
-
 class TopicInput extends Component {
   constructor(props) {
     super(props);
@@ -118,7 +119,7 @@ class TopicInput extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="topic_input">
         {console.log(this.state)}
         {console.log(this.state.datetime_end)}
         {
@@ -131,14 +132,18 @@ class TopicInput extends Component {
         //   <button>Set times and dates</button>
         // </form>
         }
-        <h1>Add Topics</h1>
-        {this.state.topics.length > 0 && <TopicList topics={this.state.topics} handleDelete={this.handleDelete}  />}
+        <h2>Add Topics</h2>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" name="topic" />
-          <button>Submit</button>
+          <input className="insert__name" type="text" name="topic" />
+          <Button type="submit" className="add" variant="outlined">Add</Button>
         </form>
-        <button onClick ={this.resetWrapper}>Back</button>
-        <button onClick={this.handleCreateRoom}>Complete</button>
+        <div>
+          {this.state.topics.length > 0 && <TopicList topics={this.state.topics} handleDelete={this.handleDelete} />}
+        </div>
+        <div>
+          <Button variant="contained" color="primary" onClick ={this.resetWrapper}>Back</Button>
+          <Button variant="contained" className="complete" type="submit" onClick={this.handleCreateRoom}>Complete</Button>
+        </div>
       </div>
     );
   }

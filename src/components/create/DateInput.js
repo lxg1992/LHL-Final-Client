@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TopicInput from "./TopicInput";
+import "./DateInput.scss";
 import NameInput from "./NameInput";
 import "./DateInput.scss";
 import "./Nameinput.scss";

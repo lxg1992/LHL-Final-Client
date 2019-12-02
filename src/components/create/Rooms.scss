@@ -8,11 +8,14 @@
    .deleteRoom {
       background: rgb(212, 49, 51);
       color: white;
-      position: absolute;
-      bottom: 0.75rem;
-      right: 0.75rem;
    }
    .deleteRoom:hover {
       background: rgb(255, 41, 37);
+   }
+   .joinCurrentButton {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
    }
 }

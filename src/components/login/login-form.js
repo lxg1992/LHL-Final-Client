@@ -10,8 +10,7 @@ const LoginForm = () => (
   
 
   <Formik
-   
-
+  
     initialValues={{ email: "", password: "" }}
     onSubmit={(values, { setSubmitting }) => {
       axios.post(`users/login`, {email: values.email, password: values.password })
