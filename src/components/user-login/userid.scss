@@ -9,9 +9,15 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-around;
-      Button {
+      .create--button {
          margin-top: 2rem;
          width: 20rem;
+         text-decoration: none;
+      }
+      .join--button {
+         margin-top: 2rem;
+         width: 20rem;
+         text-decoration: none;
       }
    }
 }

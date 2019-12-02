@@ -2,7 +2,6 @@
    display: grid;
    grid-template-columns: repeat(3, 1fr);
    grid-template-rows: auto;
-   margin-top: 3rem;
    .login--bar {
       grid-column: 2/3;
       border-radius: 5%;
@@ -11,6 +10,7 @@
       position: static;
       border: solid 0.5px light-grey;
       width: 30vw;
+      margin-top: 3rem;
    }
 
    @media screen and (max-width: 1100px) {
