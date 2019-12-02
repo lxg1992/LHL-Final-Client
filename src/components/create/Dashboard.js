@@ -7,7 +7,7 @@ import { create } from "domain";
 import Cookies from "universal-cookie";
 import "./Dashboard.scss";
 import "./Rooms.scss";
-
+import "../join/QuestionInput";
 import {
   BrowserRouter as Router,
   Switch,
@@ -141,7 +141,7 @@ function Dashboard(props) {
         console.log(res);
         setRoomHash(res.data[0].room_hash)
         // setRoomRedirect(true);
-        history.push({ pathname: "/main", state: { roomHash: res.data[0].room_hash, tags_created: res.data[0].tags_created } })
+        history.push({ pathname: "/main", state: { roomHash: res.data[0].room_hash, room_id: res.data[0].id, tags_created: res.data[0].tags_created } })
       })
   }
   // }

@@ -10,6 +10,7 @@ import Account from "../account/Account";
 import Dashboard from "../create/Dashboard";
 import Cookies from "universal-cookie";
 import Main from "../main/main";
+import QuestionInput from "../join/QuestionInput";
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,6 +26,7 @@ export default function App() {
     <Router>
         <Switch>
           <Route exact path="/" component={Root} />
+          <Route path="/guestJoin" component = {QuestionInput} />
           {!cookie.get("token") && <Redirect to="/"/>}
           <Route path="/account" component={Account} />
           <Route path="/userID" component={Userid} />

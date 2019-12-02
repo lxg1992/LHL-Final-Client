@@ -12,11 +12,13 @@ class QuestionInput extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     const cookie = new Cookies();
+
+    // console.log(window.history.state.state.guest_id);
     this.state = {
-      guest_id: props.guestId,
+      guest_id: props.guestId || window.history.state.state.guest_id,
       messages: [],
       tags: [],
-      hash: props.roomHash
+      hash: props.roomHash || window.history.state.state.roomHash
     }
     // this.state = {
     //   guest_id: cookie.get("user_id"),
