@@ -24,10 +24,10 @@ export default function Nav(props) {
    return (
       <div className = "login--Nav">
          <div className = "logo">
-            LOGO
+            InQuire
          </div>
          <div className="nav--right">
-            {!cookie.get("email") && <Button variant="outlined" color="primary" className="guest">Login</Button>}
+            {/* {!cookie.get("email") && <Button variant="outlined" color="primary" className="guest">Login</Button>} */}
             
                {cookie.get("email") && <Link to="/account">
                   <div className="logedin">

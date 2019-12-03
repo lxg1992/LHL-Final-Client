@@ -76,7 +76,7 @@ const LoginForm = () => (
         {errors.password && touched.password && (
           <div className="input-feedback">{errors.password}</div>
         )}
-        <Button type="submit" variant="contained" color="primary" disabled={isSubmitting}>
+        <Button className="loginButton" type="submit" variant="contained" color="primary" disabled={isSubmitting}>
           Login
         </Button>
         {/* <div className="orDiv">
