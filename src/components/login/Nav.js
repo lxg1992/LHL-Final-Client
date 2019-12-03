@@ -28,9 +28,13 @@ export default function Nav(props) {
          <div className="nav--right">
             {!cookie.get("email") && <Button variant="outlined" color="primary" className="guest">Login</Button>}
             
-               {cookie.get("email") && <Link to="/account"><div>Logged in as: <span> {cookie.get("email")} </span></div></Link>}
+               {cookie.get("email") && <Link to="/account"><div className="logedin">
+                  <p>hello</p>
+                  <p>{cookie.get("email")}</p>
+                  </div>
+               </Link>}
             
-            {cookie.get("email") && <Button variant="outlined" color="primary" onClick={handleLogout}>logout</Button> }
+            {cookie.get("email") && <Button variant="outlined" color="primary" className="logout" onClick={handleLogout}>logout</Button> }
             
          </div>
       </div>

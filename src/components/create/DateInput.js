@@ -54,7 +54,7 @@ function DateInput(props) {
             To: <input className="input_date" type="time" name="time_end" />
             
             <div className="button--time">
-              <Button variant="contained" color="primary" onClick={props.reset}>BACK</Button>
+              <Button variant="contained" onClick={props.reset}>BACK</Button>
               <Button variant="contained" className="submit" type="submit">Set times and dates</Button>
             </div>
           </form>

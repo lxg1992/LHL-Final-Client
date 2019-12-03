@@ -32,7 +32,7 @@ function NameInput(props) {
           <form onSubmit={handleSubmit}>
             <input className="insert__name" type="text" name="name" />
             <div className="button--name">
-              <Button variant="contained" color="primary" onClick={props.reset}>Back</Button>
+              <Button variant="contained" onClick={props.reset}>Back</Button>
               <Button variant="contained" className="submit" type="submit">Submit</Button>
             </div>
           </form>

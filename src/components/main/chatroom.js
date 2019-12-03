@@ -1,6 +1,7 @@
 import React from "react";
 import "./chatroom.scss";
 import "./QuestionOutput";
+import Button from '@material-ui/core/Button';
 import QuestionOutput from "./QuestionOutput";
 import axios from "axios";
 export default function Chatroom () {
@@ -22,7 +23,7 @@ export default function Chatroom () {
             </div>
             <QuestionOutput/>
          </div>
-         <button onClick = {handleCloseRoom}>Close room</button>
+         <Button className="closeroom" onClick = {handleCloseRoom}>X Close</Button>
       </div>
    )
 }

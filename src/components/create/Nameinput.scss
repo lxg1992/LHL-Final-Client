@@ -5,6 +5,14 @@
          display: flex;
          flex-direction: column;
          flex-wrap: nowrap;
+         button{
+            background: rgb(102, 141, 229);
+            color: white;
+         }
+         button:hover{
+            color: white;
+            background:rgb(38, 78, 198) ;
+         }
       }
       .insert__name {
          flex: 1;
@@ -36,9 +44,12 @@
          color: white;
          margin-left: 1rem;
       }
+      .submit:hover {
+         background: rgb(24, 200, 78);
+      }
    }
    .complete {
-      background: rgb(24, 200, 78);
+      background: rgb(108, 211, 175);
       color: white;
       margin-left: 1rem;
    }
@@ -46,13 +57,13 @@
       background: rgb(46, 231, 102);
    }
    .add {
-      border: 1px solid rgb(255, 152, 0);
-      color: rgb(255, 152, 0);
+      border: 1px solid rgb(247, 150, 157);
+      color: rgb(247, 150, 157);
       padding: 1px;
       margin-left: 1rem;
    }
    .add:hover {
-      background: rgb(255, 152, 0);
+      background: rgb(247, 178, 173);
       color: white;
    }
    .topic_input {
@@ -67,6 +78,14 @@
             border: 1px lightgray solid;
          }
       }
+      .back{
+         background: rgb(102, 141, 229);
+         color: white;
+      }
+      .back:hover{
+         color: white;
+         background:rgb(38, 78, 198) ;
+      }
    }
    .topicitems {
       display: flex;
@@ -79,11 +98,11 @@
       border-bottom: 1px solid lightgray;
       button {
          padding: 0;
-         color: rgb(212, 49, 51);
+         color: rgb(244, 92, 81);
       }
    }
    .topicitems:hover button {
-      background: rgb(212, 49, 51);
+      background: rgb(244, 92, 81);
       color: white;
    }
 }

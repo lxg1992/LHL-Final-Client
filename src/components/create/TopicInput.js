@@ -141,7 +141,7 @@ class TopicInput extends Component {
           {this.state.topics.length > 0 && <TopicList topics={this.state.topics} handleDelete={this.handleDelete} />}
         </div>
         <div>
-          <Button variant="contained" color="primary" onClick ={this.resetWrapper}>Back</Button>
+          <Button variant="contained" className="back" onClick ={this.resetWrapper}>Back</Button>
           <Button variant="contained" className="complete" type="submit" onClick={this.handleCreateRoom}>Complete</Button>
         </div>
       </div>

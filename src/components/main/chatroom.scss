@@ -34,12 +34,26 @@
          display: flex;
          flex-wrap: wrap;
       }
+      .tag-topic:hover{
+         background: rgb(108, 108, 108);
+         color: rgb(179, 238, 215);
+      }
    }
    .chatroom-question {
       height: 65vh;
       overflow: scroll;
       resize: none;
    }  
+   .closeroom {
+      background: rgb(108, 108, 108);
+      color: white;
+      border-radius: 0px;
+      border-bottom-left-radius: 5px;
+      border-top-right-radius: 5px;
+   }
+   .closeroom:hover {
+      color: rgb(108, 108, 108);
+   }
 }
 
 @media screen and (max-width: 1100px) {
