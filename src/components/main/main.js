@@ -2,7 +2,6 @@ import React from "react";
 import Nav from "../login/Nav";
 import "./main.scss";
 import Chatroom from "./chatroom";
-import Table from "./table";
 import QuestionOutput from "./QuestionOutput";
 
 export default function Main() {

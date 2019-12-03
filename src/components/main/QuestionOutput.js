@@ -70,7 +70,7 @@ function QuestionOutput(props) {
       });
   }, []);
 
- 
+
     useEffect(() => {
       const timer = setInterval(() => {
         console.log("5 seconds have passed");

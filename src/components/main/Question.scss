@@ -1,0 +1,16 @@
+.list-chatroom {
+   text-decoration: none;
+   padding: 1rem;
+   .user-info {
+      display: flex;
+      .userID-chatroom {
+         border: 1px solid;
+         padding: 2px;
+         border-radius: 5px;
+      }
+      button {
+         padding: 0 2px;
+         color: white;
+      }
+   }
+}

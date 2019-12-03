@@ -1,19 +1,67 @@
 .chatroom {
    grid-column: 1/2;
-   margin-left: 3rem;
+   margin: 2rem;
+   border: 2px solid rgb(108, 108, 108);
+   border-radius: 10px;
+   width: 35vw;
+   h2 {
+      border-bottom: 2px solid rgb(108, 108, 108);
+      text-align: center;
+      margin-top: 0;
+      padding: 5px;
+      color: white;
+      background: rgb(108, 108, 108);
+   }
    .topic {
       display: flex;
-      justify-content: space-around;
-      margin-bottom: 1rem;
-   }
-   h3 {
-      border-bottom: 1px solid lightgray;
-      text-align: center;
+      justify-content: flex-start;
+      padding: 0.5rem;
+      border-bottom: 2px rgb(108, 108, 108) solid;
+      margin-bottom: 0.5rem;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      .today-topic {
+         margin: 0.3rem;
+      }
+      .tag-topic{
+         margin: 0.3rem;
+         border: 2px solid rgb(108, 108, 108);
+         padding: 1px;
+         border-radius: 5px;
+         background: rgb(179, 238, 215);
+         color: rgb(108, 108, 108);
+         display: flex;
+         flex-wrap: wrap;
+      }
    }
    .chatroom-question {
-      height: 50vh;
+      height: 65vh;
       overflow: scroll;
       resize: none;
-      border: 1px solid lightgray;
    }  
+}
+
+@media screen and (max-width: 1100px) {
+   .chatroom {
+      width: 40vw;
+   }
+}
+
+@media screen and (max-width: 900px) {
+   .chatroom {
+      width: 60vw;
+   }
+}
+
+@media screen and (max-width: 600px) {
+   .chatroom {
+      width: 70vw;
+   }
+}
+
+@media screen and (max-width: 400px) {
+   .chatroom {
+      width: 90vw;
+   }
 }

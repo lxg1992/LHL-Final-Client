@@ -12,14 +12,14 @@ export default function Chatroom () {
    }
    return (
       <div className="chatroom">
-         <h1>Room Hash: {roomHash}</h1>
-         <div className="topic">
-        { tagsCreated.map((tags, index) => { 
-           return <p key = {index}>{tags}</p>;
-        })}
-         </div>
+         <h2>Room Hash: {roomHash}</h2>
          <div className="chatroom-question">
-            <h3>Chatroom</h3>
+            <div className="topic">
+               <h4 className="today-topic">Today topic: </h4>
+            { tagsCreated.map((tags, index) => { 
+               return <div className="tag-topic" key = {index}>{tags}</div>;
+            })}
+            </div>
             <QuestionOutput/>
          </div>
          <button onClick = {handleCloseRoom}>Close room</button>
