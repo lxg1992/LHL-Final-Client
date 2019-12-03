@@ -144,6 +144,15 @@ function Dashboard(props) {
         history.push({ pathname: "/main", state: { roomHash: res.data[0].room_hash, room_id: res.data[0].id, tags_created: res.data[0].tags_created } })
       })
   }
+  
+  function handleAnalysis(roomToAnalyze){
+    console.log(roomToAnalyze);
+    axios.get(`/questions/${roomToAnalyze}/analysis`)
+    .then(res =>{
+      console.log(res);
+      history.push({pathname: "/analysis", state: {getIndividualTagsCount: res.data.getIndividualTagsCount, getQuestionsInvolvingTags: res.data.getQuestionsInvolvingTags, getTotalGuestsCount: res.data.getTotalGuestsCount, getTotalQuestionsByGuestId: res.data.getTotalQuestionsByGuestId, getTotalQuestionsCount:res.data.getTotalQuestionsCount, getTotalTagsCount: res.data.getTotalTagsCount}})
+    })
+  }
   // }
   return (
     <div className="dashboard--container">
@@ -170,7 +179,7 @@ function Dashboard(props) {
 
         <div className="content--room">
           <div className="title title--past">Archived</div>
-          <RoomList className="room__past" key="pastRooms" rooms={pastRooms} />
+          <RoomList className="room__past" key="pastRooms" rooms={pastRooms} handleAnalysis={handleAnalysis} />
         </div>
       </div>
     </div>

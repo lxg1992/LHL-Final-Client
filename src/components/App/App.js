@@ -11,6 +11,7 @@ import Dashboard from "../create/Dashboard";
 import Cookies from "universal-cookie";
 import Main from "../main/main";
 import QuestionInput from "../join/QuestionInput";
+import Analysis from "../create/Analysis";
 import {
   BrowserRouter as Router,
   Switch,
@@ -34,7 +35,7 @@ export default function App() {
           <Route path="/join" component={Join} />
           <Route path="/main" component={Main} />
           <Route path="/dashboard" component={Dashboard} />
-
+          <Route path="/analysis" component={Analysis} />
         </Switch>
     </Router>
   );
