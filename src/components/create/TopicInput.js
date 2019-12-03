@@ -13,6 +13,7 @@ class TopicInput extends Component {
     this.handleDateSubmit = this.handleDateSubmit.bind(this);
     this.reset = this.reset.bind(this);
     this.resetWrapper = this.resetWrapper.bind(this);
+    this.handleAnonPosting = this.handleAnonPosting.bind(this);
     const cookie = new Cookies();
     // const time_start = new Date();
     // const time_end = new Date();
@@ -30,10 +31,10 @@ class TopicInput extends Component {
       host_id: cookie.get("user_id"),
       topics: [],
       room_name: props.name,
-      room_hash: "fgsfds",
+      room_hash: "",
       datetime_start: props.datetimeStart,
-      datetime_end: props.datetimeEnd
-
+      datetime_end: props.datetimeEnd,
+      allow_anonymous: false
     }
   }
 
@@ -90,13 +91,13 @@ class TopicInput extends Component {
     this.setState(() =>{
       return (
         {
-          host_id: 1,
+          host_id: this.cookie.get("user_id"),
           topics: [],
           room_name: this.props.name,
-          room_hash: "fgsfds",
+          room_hash: "",
           datetime_start: this.props.datetimeStart,
-          datetime_end: this.props.datetimeEnd
-    
+          datetime_end: this.props.datetimeEnd,
+          allow_anonymous: false
         }
       )
     })
@@ -117,10 +118,20 @@ class TopicInput extends Component {
       .then(() => this.props.handleCreateRoomComplete());
       //implement soft refresh
   }
+  handleAnonPosting(){
+    this.setState((prevState) => {
+      return (
+        {
+          allow_anonymous: !prevState.allow_anonymous
+        }
+      )
+    })
+  }
   render() {
     return (
       <div className="topic_input">
-        {console.log(this.state)}
+        {console.log("This is the entire state object", this.state)}
+        {console.log("This is allow_anonymous", this.state.allow_anonymous)}
         {console.log(this.state.datetime_end)}
         {
         // <h1>Create Room</h1>
@@ -143,6 +154,7 @@ class TopicInput extends Component {
         <div>
           <Button variant="contained" color="primary" onClick ={this.resetWrapper}>Back</Button>
           <Button variant="contained" className="complete" type="submit" onClick={this.handleCreateRoom}>Complete</Button>
+          <input type ="checkbox" id = "anon" name="allowAnonymous" onChange ={this.handleAnonPosting}/> <label htmlFor="anon">Allow anonymous posting?</label>
         </div>
       </div>
     );
