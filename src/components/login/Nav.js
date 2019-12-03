@@ -3,6 +3,7 @@ import "./Nav.scss";
 import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
 import Cookies from "universal-cookie";
+import 'font-awesome/css/font-awesome.min.css';
 import {
    BrowserRouter as Router,
    Switch,
@@ -28,9 +29,12 @@ export default function Nav(props) {
          <div className="nav--right">
             {!cookie.get("email") && <Button variant="outlined" color="primary" className="guest">Login</Button>}
             
-               {cookie.get("email") && <Link to="/account"><div className="logedin">
-                  <p>hello</p>
-                  <p>{cookie.get("email")}</p>
+               {cookie.get("email") && <Link to="/account">
+                  <div className="logedin">
+                     <i className="fa fa-user-circle" aria-hidden="true"></i>
+                     <p className="link-welcomeback">
+                        Welcome back, <strong>{cookie.get("email").replace(/@[^ ]*/g, "")}
+                        </strong></p>
                   </div>
                </Link>}
             
