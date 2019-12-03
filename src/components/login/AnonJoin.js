@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
-import "../join/join.scss";
+import "./AnonJoin.scss";
 import Button from "@material-ui/core/Button";
 import {
   BrowserRouter as Router,
@@ -11,6 +11,7 @@ import {
   Link,
   useHistory
 } from "react-router-dom";
+
 
 
 export default function Join(props){
@@ -38,15 +39,15 @@ function handleSubmit(e){
   // return <Redirect to='/target' />
 }
 return(
-  <div className ="create--question">
-  {console.log(guestId)}
-  <form className ="joinForm" onSubmit={handleSubmit}>
-  <h1>Join a room as anonymous.</h1>
-  <div className="submitjoin">
-  <input type = "text" name ="roomHash"/>
-  <Button type ="submit" variant="contained">Join</Button>
-  </div>
-  </form>
+  <div>
+    {console.log(guestId)}
+    <form className ="joinAnonymous" onSubmit={handleSubmit}>
+      <h2>Enter key number to join</h2>
+      <div className="askAnon">
+        <input type = "text" name ="roomHash"/>
+        <Button ariant="contained" color="primary" type ="submit" variant="contained">Join</Button>
+      </div>
+    </form>
   </div>
 )
 }

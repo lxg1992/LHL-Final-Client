@@ -1,0 +1,23 @@
+.joinAnonymous {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height: 20rem;
+   color: rgb(108, 108, 108);
+   h2 {
+      margin-bottom: 1rem;
+   }
+   .askAnon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      input {
+         margin-bottom: 1rem;
+         width: 20rem;
+         border-radius: 10rem;
+         border: 1px solid rgb(108, 108, 108);
+         line-height: 2.5rem;
+      }
+   }
+}

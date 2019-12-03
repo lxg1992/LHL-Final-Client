@@ -37,6 +37,7 @@ export default function Login() {
     >
     <Tab label="LOGIN"/>
     <Tab label="REGISTER" />
+    <Tab label="Join as anonymous"/>
     </Tabs>
     
     <SwipeableViews
@@ -44,12 +45,13 @@ export default function Login() {
     index={value}
     onChangeIndex={handleChangeIndex}
     >
-    <LoginForm value={value} index={0} dir={theme.direction}>
-    </LoginForm>
-    <RegisterForm value={value} index={1} dir={theme.direction}>
-    </RegisterForm>
+      <LoginForm value={value} index={0} dir={theme.direction}>
+      </LoginForm>
+      <RegisterForm value={value} index={1} dir={theme.direction}>
+      </RegisterForm>
+      <AnonJoin value={value} index={2} dir={theme.direction}>  
+      </AnonJoin>
     </SwipeableViews>
-    {/* <AnonJoin/>    */}
     </AppBar>
     </div>
   );
