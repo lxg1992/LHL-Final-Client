@@ -2,11 +2,14 @@ import React from "react";
 import "./chatroom.scss";
 import "./QuestionOutput";
 import QuestionOutput from "./QuestionOutput";
+import axios from "axios";
 export default function Chatroom () {
    console.log("This is inside chatroom", window.history.state.state.tags_created);
    let tagsCreated = window.history.state.state.tags_created;
    let roomHash = window.history.state.state.roomHash;
-
+   function handleCloseRoom(){
+      
+   }
    return (
       <div className="chatroom">
          <h1>Room Hash: {roomHash}</h1>
@@ -19,6 +22,7 @@ export default function Chatroom () {
             <h3>Chatroom</h3>
             <QuestionOutput/>
          </div>
+         <button onClick = {handleCloseRoom}>Close room</button>
       </div>
    )
 }

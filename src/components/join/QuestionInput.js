@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import "./questioninput.scss";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import nlp from "compromise";
 
 class QuestionInput extends Component {
   constructor(props) {
@@ -56,9 +57,22 @@ class QuestionInput extends Component {
     e.preventDefault();
 
     let message = e.target.elements.question.value;
+    let messageModifed = message.replace(/\?/g, "");
+    // let messageChecker = nlp(message).nouns().toTitleCase().normalize({punctuation: true}).out('array');
+    let messageChecker = nlp(messageModifed).nouns().toTitleCase().normalize({punctuation: true}).splitBefore(",").out('array');
+   
+    // messageChecker.map(message =>{
+    //   if (message[message.length - 1] === "?"){
+    //     let thinger = message[message.length - 1].pop();
+    //     console.log(thinger);
+    //   }
+    // });
 
+ 
+
+    console.log("This is supposed to be NLP", messageChecker);
     
-    console.log(e.target.getAttribute("checkbox"));
+    // console.log(e.target.getAttribute("checkbox"));
 
     this.setState((prevState) => {
       let selectedTags = [];
