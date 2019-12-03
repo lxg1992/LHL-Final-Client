@@ -18,6 +18,7 @@ function Rooms(props){
       </div>
       <div className = "joinCurrentButton">{props.handleRoomActivation && <Button variant="contained" onClick = {(e) => {props.handleRoomActivation(props.id)}}>Join</Button>}
       {props.handleDelete && <Button type="submit" variant="contained" className ="deleteRoom" onClick = {(e) => {props.handleDelete(props.id, props.datetime_start)}}>Delete Room</Button>}
+      {props.handleAnalysis && <Button type="submit" variant="contained" onClick={(e) => {props.handleAnalysis(props.id)}}>Analysis</Button>}
       </div>
     </div>
   )

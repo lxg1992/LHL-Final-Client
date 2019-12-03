@@ -12,11 +12,13 @@ class QuestionInput extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     const cookie = new Cookies();
+
+    // console.log(window.history.state.state.guest_id);
     this.state = {
-      guest_id: props.guestId,
+      guest_id: props.guestId || window.history.state.state.guest_id,
       messages: [],
       tags: [],
-      hash: props.roomHash
+      hash: props.roomHash || window.history.state.state.roomHash
     }
     // this.state = {
     //   guest_id: cookie.get("user_id"),
@@ -57,9 +59,18 @@ class QuestionInput extends Component {
     e.preventDefault();
 
     let message = e.target.elements.question.value;
-    let messageModifed = message.replace(/\?/g, "");
+    // let symbolFilter = message.replace(/[?]/g,"");
+
+    let doc1 = nlp(message);
+    let nouns = doc1.match('#Noun').not("#Pronoun")
+    let nlpArray = nouns.map(d => {
+      return d.text("reduced");
+    })
+
+    console.log(nlpArray);
+    // let messageModifed = message.replace(/\?/g, "");
     // let messageChecker = nlp(message).nouns().toTitleCase().normalize({punctuation: true}).out('array');
-    let messageChecker = nlp(messageModifed).nouns().toTitleCase().normalize({punctuation: true}).splitBefore(",").out('array');
+    // let messageChecker = nlp(messageModifed).nouns().toTitleCase().normalize({punctuation: true}).splitBefore(",").out('array');
    
     // messageChecker.map(message =>{
     //   if (message[message.length - 1] === "?"){
@@ -70,7 +81,7 @@ class QuestionInput extends Component {
 
  
 
-    console.log("This is supposed to be NLP", messageChecker);
+    console.log("This is supposed to be NLP", nlpArray);
     
     // console.log(e.target.getAttribute("checkbox"));
 
@@ -87,7 +98,9 @@ class QuestionInput extends Component {
       queryTags.forEach(function (x) {
         selectedTags.push(Object.keys(x)[0]);
       });
-
+      if (nlpArray.length > 0){
+      selectedTags = [...selectedTags, ...nlpArray];
+      }
       // console.log(selectedTags);
       return (
         {

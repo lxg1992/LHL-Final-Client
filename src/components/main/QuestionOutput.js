@@ -80,6 +80,7 @@ function QuestionOutput(props) {
           console.log(res)
           if (res.data !== questions)
             setQuestions(res.data);
+            props.fetchTopicTableInfo(res.data);
         }
         }).catch((err) => {console.log(err)});
       }, 5000);

@@ -22,7 +22,7 @@ const RegisterForm = () => (
         cookies.set("email", res.data.user[0].email, {path: "/"});
       })
       .then (res => {
-        // window.location = "/userid"
+        window.location = "/userid";
       })
       .catch(err => {
         // const [error, setError] = useState();
