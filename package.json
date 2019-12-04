@@ -56,5 +56,5 @@
     "node-sass": "^4.11.0",
     "prop-types": "^15.7.2"
   },
-  "proxy": "http://172.46.2.148:3001"
+  "proxy": "http://localhost:3001"
 }

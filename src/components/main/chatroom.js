@@ -9,6 +9,8 @@ import TopicTable from "./TopicTable";
 import { getThemeProps } from "@material-ui/styles";
 import TopicTableContainer from "./TopicTableContainer";
 import { pseudoRandomBytes } from "crypto";
+import LiveChart from "./LiveChart";
+
 
 export default function Chatroom() {
    console.log("This is inside chatroom", window.history.state.state.tags_created);
@@ -18,7 +20,7 @@ export default function Chatroom() {
    console.log("This is the room id", roomId);
    let cookie = new Cookies();
    let [topicTable, setTopicTable] = useState();
-
+   let [chartData, setChartData] = useState();
 
 
    function handleCloseRoom() {
@@ -65,10 +67,14 @@ export default function Chatroom() {
    // for (const question in questions){
    //    setTopicTable([...topicTable, {questions: questions[question].query, tags: questions[question].tags_selected}]);
    // }
-
+   function fetchChartDataInfo(data){
+      console.log("This is inside the chartData function in chatroom", data);
+      setChartData(data);
+   }
 
 
    return (
+      
       <div className="chatroom--container">
          <div className="chatroom">
             <h2>Room Hash: {roomHash}</h2>
@@ -81,7 +87,7 @@ export default function Chatroom() {
                      return <div className="tag-topic" key = {index}>{tags}</div>;
                   })}
                </div>
-               <QuestionOutput fetchTopicTableInfo={fetchTopicTableInfo}/>
+               <QuestionOutput fetchTopicTableInfo={fetchTopicTableInfo} fetchChartDataInfo={fetchChartDataInfo}/>
             </div>
             <Button className="closeroom" onClick = {handleCloseRoom}>X Close</Button>
          </div>
@@ -90,6 +96,9 @@ export default function Chatroom() {
             <h3>Frequency questions</h3>
             {topicTable && <TopicTableContainer topicTable = {topicTable}/>}
          </div>
+    
+     
       </div>
+     
    )
 }

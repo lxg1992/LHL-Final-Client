@@ -2,6 +2,7 @@ import React, { useState, useEffect, Component } from "react";
 import axios from "axios";
 import QuestionList from "./QuestionList";
 import "./QuestionOutput.scss";
+import LiveChart from "./LiveChart";
 // class QuestionOutput extends Component {
 //   constructor(props){
 //     super(props);
@@ -82,6 +83,7 @@ function QuestionOutput(props) {
           if (res.data !== questions)
             setQuestions(res.data);
             props.fetchTopicTableInfo(res.data);
+            // props.fetchChartDataInfo(res.data);
         }
         }).catch((err) => {console.log(err)});
       }, 5000);
