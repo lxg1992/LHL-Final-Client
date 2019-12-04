@@ -2,8 +2,9 @@
    grid-column: 2/3;
    display: flex;
    flex-direction: column;
-   width: 90%;
+   width: 100%;
    margin: auto;
+   margin-top: 7rem;
    h2{
       padding: 1rem 0 1rem 0;
       margin: auto;
@@ -23,5 +24,11 @@
    .confirmChangeForm {
       margin: auto;
       margin-top: 1rem;
+   }
+}
+
+@media screen and (max-width: 500px) {
+   .change--form {
+      width: 80vw;
    }
 }

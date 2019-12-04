@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Component } from "react";
 import axios from "axios";
-import QuestionList from "./QuestionList"
+import QuestionList from "./QuestionList";
+import "./QuestionOutput.scss";
 // class QuestionOutput extends Component {
 //   constructor(props){
 //     super(props);
@@ -107,7 +108,7 @@ function banUser(room_id, guest_id){
 }
 
   return (
-    <div>
+    <div className = "questionOutput">
       {console.log(questions)}
  
       {questions.length > 0 && <QuestionList questions={questions} banUser = {banUser}></QuestionList>}

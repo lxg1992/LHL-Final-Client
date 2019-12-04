@@ -1,6 +1,24 @@
-body {
-  font: 10px sans-serif;
+.chartcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  svg{
+    border-radius: 20px;
+    padding: 1rem;
+    margin-right: 1rem;
+  }
+  .barchart {
+    margin-right: 2rem;
+    margin-top: 10rem;
+  }
+  .responsivecontainer{
+    padding: 10px;
+    width: 100%;
+  }
 }
+
+
 
 .axis path,
 .axis line {
@@ -49,3 +67,8 @@ body {
   top: 100%;
   left: 0;
 }
+
+
+@media screen and (max-width: 500px) {
+}
+
