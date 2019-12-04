@@ -159,7 +159,7 @@ class QuestionInput extends Component {
       return(
         {
           buttonDisabled: !prevState.buttonDisabled,
-          postSuccessMessage: "Post Successful"
+          postSuccessMessage: "Post Successful !"
         }
       )
     })
@@ -185,11 +185,11 @@ class QuestionInput extends Component {
     return (
       <div className="question--input">
         <form onSubmit={this.handleSubmit}>
-          <h2>What are your questions?</h2>
+          <h1>What are your questions?</h1>
           <div className="tagList">
             <TagList tagList={this.state.tags} handleCheck={this.handleCheck} />
           </div>
-          {this.state.postSuccessMessage && <h1>{this.state.postSuccessMessage}</h1>}
+          {this.state.postSuccessMessage && <div className="error">{this.state.postSuccessMessage}</div>}
           <input className="input--question" type="text" name="question" wrap="hard" placeholder="please enter your quesition here" />
           <Button type="submit" variant="contained" onClick ={this.disableButton} disabled={this.state.buttonDisabled}>Submit</Button>
         </form>
