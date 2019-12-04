@@ -16,7 +16,7 @@ function Question (props){
           </div>
         </div>
         <div className="ban">
-          <h4><i class="fa fa-circle" aria-hidden="true"></i> <span>-</span> Allowed: {props.question.is_allowed.toString()}</h4>
+          <h4><i className="fa fa-circle" aria-hidden="true"></i> <span>-</span> Allowed: {props.question.is_allowed.toString()}</h4>
           <Button onClick ={(e) => {props.banUser(props.question.room_id, props.question.guest_id)}} >X Ban user</Button>
         </div>
       </div>
