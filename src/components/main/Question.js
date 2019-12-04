@@ -3,7 +3,7 @@ import "./Question.scss";
 import Button from '@material-ui/core/Button';
 function Question (props){
   return(
-    <ul className="list-chatroom">
+    <>
     { props.question.is_allowed && 
     <li>
       <div className="chatbox">
@@ -22,8 +22,9 @@ function Question (props){
       </div>
     </li>
     }
-    </ul>
-  )
+  </>
+    )
+  
 }
 
 export default Question;
