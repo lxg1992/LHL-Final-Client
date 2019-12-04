@@ -168,17 +168,17 @@ class QuestionInput extends Component {
 
   // }
   disableButton(){
-    this.setState((prevState) =>{
-      return(
-        {
-          buttonDisabled: !prevState.buttonDisabled,
-          postSuccessMessage: "Post Successful !"
-        }
-      )
-    })
-    setTimeout(() => {
-      this.enableButton();
-    }, 10000)
+      this.setState((prevState) =>{
+        return(
+          {
+            buttonDisabled: !prevState.buttonDisabled,
+            postSuccessMessage: "Post Successful"
+          }
+        )
+      })
+      setTimeout(() => {
+        this.enableButton();
+      }, 10000);
   }
 
   enableButton(){
@@ -197,14 +197,13 @@ class QuestionInput extends Component {
   render() {
     return (
       <div className="question--input">
-        <h1>What are your questions?</h1>
-        {console.log(this.state)}
-        
         <form onSubmit={this.handleSubmit}>
+          <h1>What are your questions?</h1>
           <div className="tagList">
             <TagList tagList={this.state.tags} handleCheck={this.handleCheck} />
           </div>
-          {this.state.postSuccessMessage ? <h1>{this.state.postSuccessMessage}</h1> : <div className="error"><p>{this.state.errorMessage}</p></div>}
+          {this.state.postSuccessMessage ? <h1>{this.state.postSuccessMessage}</h1> : null}
+          {this.state.errorMessage ? <div className= "error">{this.state.errorMessage} </div> : null}
           <input className="input--question" type="text" name="question" wrap="hard" placeholder="please enter your quesition here" />
           <Button type="submit" variant="contained" disabled={this.state.buttonDisabled}>Submit</Button>
 
