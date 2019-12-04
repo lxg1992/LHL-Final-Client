@@ -27,6 +27,13 @@ export default function Navi(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto"></Nav>
           {cookie.get("email") && (
+            <Nav.Link href="/create">
+            <div className="account">
+            Dashboard
+            </div>
+            </Nav.Link>
+          )}
+          {cookie.get("email") && (
             <Nav.Link href="/account">
                <div className="account">
                   <i className="fa fa-user-circle" aria-hidden="true"></i>

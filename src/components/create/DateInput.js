@@ -11,9 +11,15 @@ function DateInput(props) {
   const [submitHandled, setSubmitHandled] = useState(false);
   const [backButtonClicked, setBackButtonClicked] = useState(false);
   const [errorState, setErrorState] = useState("");
+
   let startDateModifier= new Date();
-  startDateModifier = startDateModifier.setDate(startDateModifier.getDate()-1);
+  startDateModifier = startDateModifier.setDate(startDateModifier.getDate());
   let startDateNow = new Date(startDateModifier);
+
+  let timeEndModifier = new Date();
+  timeEndModifier= timeEndModifier.setHours(timeEndModifier.getHours() + 1);
+  let timeEnd = new Date(timeEndModifier);
+
   function handleDateSubmit(e) {
     e.preventDefault();
     // console.log(e.target.elements.date_start.value);
@@ -48,8 +54,8 @@ function DateInput(props) {
         <h4>When would you like to start?</h4>
           <form onSubmit={handleDateSubmit}>
             Starting on: <input className="input_date" type="date" name="date_start" min={startDateNow.toISOString().split("T")[0]} defaultValue ={startDateNow.toISOString().split("T")[0]}/>
-            From: <input className="input_date" type="time" name="time_start" min ={new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false})} max= "23:59"/>
-            To: <input className="input_date" type="time" name="time_end" min ={new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false})} max="23:59" />
+            From: <input className="input_date" type="time" name="time_start" min ={new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false})} max= "23:59" defaultValue={new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false})}/>
+            To: <input className="input_date" type="time" name="time_end" min ={new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false})} max="23:59" defaultValue={timeEnd.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false})} />
             
             <div className="button--time">
               <Button variant="contained" onClick={props.reset}>BACK</Button>
