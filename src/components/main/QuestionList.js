@@ -6,7 +6,7 @@ function QuestionList(props) {
     <ul className="list-chatroom">
     {
     props.questions.map((question, index) => {
-      return <Question key={index} question = {question} banUser = {props.banUser}/>
+      return <Question key={index} index={index} question = {question} banUser = {props.banUser}/>
     })
   }
     </ul>
