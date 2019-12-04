@@ -10,25 +10,20 @@ function DateInput(props) {
   const [datetimeEnd, setDatetimeEnd] = useState();
   const [submitHandled, setSubmitHandled] = useState(false);
   const [backButtonClicked, setBackButtonClicked] = useState(false);
+  const [errorState, setErrorState] = useState("");
+  let startDateModifier= new Date();
+  startDateModifier = startDateModifier.setDate(startDateModifier.getDate()-1);
+  let startDateNow = new Date(startDateModifier);
   function handleDateSubmit(e) {
     e.preventDefault();
     // console.log(e.target.elements.date_start.value);
     let startDate = e.target.elements.date_start.value;
     let startTime = e.target.elements.time_start.value;
     let endTime = e.target.elements.time_end.value;
-
+    
     let startingDate = new Date(startDate + "T" + startTime + ":00");
     let endingDate = new Date(startDate + "T" + endTime + ":00")
-    // console.log(startingDate);
-    // console.log(endingDate);
-    // this.setState(() => {
-    //   return (
-    //     {
-    //       datetime_start: startingDate,
-    //       datetime_end: endingDate,
-    //     }
-    //   )
-    // })
+
     setDatetimeStart(startingDate);
     setDatetimeEnd(endingDate);
     setSubmitHandled(true);
@@ -40,8 +35,11 @@ function DateInput(props) {
     setSubmitHandled(false);
     setBackButtonClicked(false);
   }
+  
   return (
     <div>
+      {console.log(startDateNow)}
+      {console.log( new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false}))}
       {backButtonClicked && <NameInput />}
       {console.log("Starting time", datetimeStart)}
       {console.log("Ending time", datetimeEnd)}
@@ -49,9 +47,9 @@ function DateInput(props) {
         <div className="nameinput">
         <h4>When would you like to start?</h4>
           <form onSubmit={handleDateSubmit}>
-            Starting on: <input className="input_date" type="date" name="date_start" />
-            From: <input className="input_date" type="time" name="time_start" />
-            To: <input className="input_date" type="time" name="time_end" />
+            Starting on: <input className="input_date" type="date" name="date_start" min={startDateNow.toISOString().split("T")[0]} defaultValue ={startDateNow.toISOString().split("T")[0]}/>
+            From: <input className="input_date" type="time" name="time_start" min ={new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false})} max= "23:59"/>
+            To: <input className="input_date" type="time" name="time_end" min ={new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false})} max="23:59" />
             
             <div className="button--time">
               <Button variant="contained" onClick={props.reset}>BACK</Button>

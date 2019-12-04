@@ -24,7 +24,8 @@ class QuestionInput extends Component {
       tags: [],
       hash: props.roomHash || window.history.state.state.roomHash,
       buttonDisabled: false,
-      postSuccessMessage: ""
+      postSuccessMessage: "",
+      errorMessage: ""
     }
     // this.state = {
     //   guest_id: cookie.get("user_id"),
@@ -46,7 +47,7 @@ class QuestionInput extends Component {
         console.log(checkboxes)
         this.setState({ tags: checkboxes })
 
-      }).catch(err => console.log(err));
+      }).catch(err => console.log("THIS IS THE ERROR", err.response.data.error));
   }
 
   handleCheck(e) {
@@ -126,8 +127,20 @@ class QuestionInput extends Component {
       return axios.post(`/rooms/${this.state.hash}/questions`, output)
         .then(res => {
           console.log(res);
+          this.disableButton();
         })
-        .catch(err => console.log(err))
+        .catch(error=> {
+          console.log(error.response.data.error)
+          this.setState(() =>{
+            return (
+              {
+                errorMessage: error.response.data.error
+              }
+            )
+          })
+        
+        })
+        
     });
 
 
@@ -155,17 +168,17 @@ class QuestionInput extends Component {
 
   // }
   disableButton(){
-    this.setState((prevState) =>{
-      return(
-        {
-          buttonDisabled: !prevState.buttonDisabled,
-          postSuccessMessage: "Post Successful"
-        }
-      )
-    })
-    setTimeout(() => {
-      this.enableButton();
-    }, 10000)
+      this.setState((prevState) =>{
+        return(
+          {
+            buttonDisabled: !prevState.buttonDisabled,
+            postSuccessMessage: "Post Successful"
+          }
+        )
+      })
+      setTimeout(() => {
+        this.enableButton();
+      }, 10000);
   }
 
   enableButton(){
@@ -186,11 +199,11 @@ class QuestionInput extends Component {
       <div className="question--input">
         <h1>What are your questions?</h1>
         {console.log(this.state)}
-        {this.state.postSuccessMessage && <h1>{this.state.postSuccessMessage}</h1>}
+        {this.state.postSuccessMessage ? <h1>{this.state.postSuccessMessage}</h1> : <div className="error"><p>{this.state.errorMessage}</p></div>}
         <form onSubmit={this.handleSubmit}>
           <TagList tagList={this.state.tags} handleCheck={this.handleCheck} />
           <input className="input--question" type="text" name="question" wrap="hard" placeholder="please enter your quesition here" />
-          <Button type="submit" variant="contained" onClick ={this.disableButton} disabled={this.state.buttonDisabled}>Submit</Button>
+          <Button type="submit" variant="contained" disabled={this.state.buttonDisabled}>Submit</Button>
 
         </form>
 

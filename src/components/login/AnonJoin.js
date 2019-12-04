@@ -17,6 +17,7 @@ import {
 export default function Join(props){
 const [roomHash, setRoomHash ] = useState();
 const [guestId, setGuestId] = useState();
+const [errorState, setErrorState] = useState("");
 let history = useHistory();
 
 const cookie = new Cookies();
@@ -36,11 +37,17 @@ function handleSubmit(e){
     // console.log("This is guest inside the aixos call in Join", guest);
     history.push({ pathname: "/guestJoin", state:{ guest_id, roomHash }});
   })
+  .catch(error =>{
+    setErrorState(error.response.data.error);
+    console.log(error.response.data.error);
+  })
   // return <Redirect to='/target' />
 }
 return(
   <div>
     {console.log(guestId)}
+    {console.log("This is the errorState", errorState)}
+    {errorState && <div className="error"><p>{errorState}</p></div>}
     <form className ="joinAnonymous" onSubmit={handleSubmit}>
       <h2>Enter key number to join</h2>
       <div className="askAnon">
