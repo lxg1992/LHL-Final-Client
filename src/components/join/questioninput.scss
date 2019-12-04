@@ -44,12 +44,22 @@
    color:  rgb(179, 238, 215);
 }
 
-.error {
+.success{
    color: rgb(68, 122, 65);
    background: rgb(223, 240, 216);
    border: 0.5px solid rgb(68, 122, 65);
    border-radius: 10px;
-   margin: 0.5rem auto 0.5rem;
+   margin: 0.5rem auto;
+   width: 50%;
+   text-align: center;
+}
+
+.error{
+   color: rgb(255, 41, 37);
+   background: rgb(255, 226, 224);
+   border: 0.5px solid rgb(255, 41, 37);
+   border-radius: 10px;
+   margin: 0.5rem auto;
    width: 50%;
    text-align: center;
 }

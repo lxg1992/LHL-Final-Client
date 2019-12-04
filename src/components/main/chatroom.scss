@@ -1,9 +1,8 @@
 .chatroom {
    grid-column: 1/2;
-   margin: 1rem 1rem 1rem 2rem;
    border: 2px solid rgb(108, 108, 108);
    border-radius: 10px;
-   width: 40rem;
+   width: 50rem;
    transition-duration: 0.5s;
    height: 90%;
    position: relative;
@@ -71,20 +70,77 @@
    transition-duration: 0.5s;
 }
 
-@media screen and (max-width: 1100px) {
-   .chatroom {
-      width: 40vw;
+.chatroom--container {
+   width: 100vw;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   .statistic--table {
+      margin: 8rem 2rem 0rem 5%;
+      border: 2px solid rgb(108, 108, 108);
+      width: 20vw;
+      border-radius: 10px;
+      height: 78vh;
+      overflow: scroll;
+      h3{
+         background: rgb(113, 128, 145);
+         color: white;
+         padding: 0.5rem;
+         position: sticky;
+         top: 0;
+         z-index: 2;
+      }
+      th{
+         margin: 0.5rem 0.5rem ;
+         background: rgb(244, 92, 81);
+         color: white;
+         border-top-right-radius: 5px;
+         border-bottom-right-radius: 5px;
+      }
+      td {
+         padding: 0rem 0.5rem ;
+      }
    }
 }
 
-@media screen and (max-width: 900px) {
+
+@media screen and (max-width: 1100px) {
    .chatroom {
-      width: 80vw;
+      width: 45vw;
+   }
+}
+
+@media screen and (max-width: 920px) {
+   .chatroom--container {
+      .chatroom {
+         width: 80vw;
+         margin-bottom: 1rem;
+      }
+      .statistic--table {
+         margin: unset;
+         width: 80vw;
+      }
    }
 }
 
 @media screen and (max-width: 400px) {
-   .chatroom {
-      width: 90vw;
+   .chatroom--container {
+      .chatroom {
+         width: 80vw;
+         margin-bottom: 1rem;
+      }
+      .statistic--table {
+         margin: unset;
+         width: 80vw;
+      }
    }
+}
+
+@keyframes fadein{
+   from {opacity: 0}
+   to {opacity: 1}
+}
+
+.fadein{
+   animation: fadein 1.2s;
 }
