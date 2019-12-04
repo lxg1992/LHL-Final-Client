@@ -87,7 +87,7 @@ export default function Chatroom() {
          </div>
 
          <div className="statistic--table">
-            <h3>Frequence questions</h3>
+            <h3>Frequency questions</h3>
             {topicTable && <TopicTableContainer topicTable = {topicTable}/>}
          </div>
       </div>
