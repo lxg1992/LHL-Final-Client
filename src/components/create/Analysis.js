@@ -1,5 +1,6 @@
 import React from "react";
 import Navi from "../login/Nav";
+import ReactWordcloud from 'react-wordcloud';
 // import * as d3module from 'd3';
 // import d3tip from 'd3-tip';
 import "./Analysis.scss";
@@ -29,6 +30,10 @@ function Analysis(props) {
     return {name: tags, Count: getIndividualTagsCount[tags]};
   })
   console.log(pieChartData);
+
+  let wordCloudData = Object.keys(getIndividualTagsCount).map((tags) =>{
+    return {text: tags, value: getIndividualTagsCount[tags]};
+  });
   // const data = [
   //   { name: 'Group A', value: 400 },
   //   { name: 'Group B', value: 300 },
@@ -84,6 +89,10 @@ function Analysis(props) {
               </Pie>
             <Tooltip />
           </PieChart>
+
+          <div style={{ height: 400, width: 600 }}>
+          <ReactWordcloud words={wordCloudData} />
+        </div>
 
       </div>
     </div>
