@@ -1,7 +1,7 @@
 .question--input {
    display: flex;
    flex-direction: column;
-   margin-top: 5rem;
+   margin-top: 7rem;
    form {
       margin: 5rem auto;
       display: flex;
@@ -9,17 +9,17 @@
       h1 {
          text-align: center;
       }
-      .tag--join {  
-         margin: auto 5rem 1rem;
-         line-height: 2rem;
-         border: 1px lightgray solid;
-         border-radius: 10px;
+      .tagList{
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-evenly;
       }
       .input--question {
-         margin: auto 2rem 1rem;
+         margin: auto 1rem 1rem;
          line-height: 2rem;
          border: 1px lightgray solid;
          border-radius: 10px;
+         width: 100%;
       }
       Button {
          width: 5rem;
@@ -28,4 +28,18 @@
          color: white;
       }
    }
+}
+
+.tag--join{
+   border: 2px solid rgb(108, 108, 108);
+   padding: 1px;
+   border-radius: 5px;
+   background: rgb(179, 238, 215);
+   color: rgb(108, 108, 108);
+   margin-bottom: 1rem;
+}
+
+.tag--join:hover {
+   background: rgb(108, 108, 108);
+   color:  rgb(179, 238, 215);
 }

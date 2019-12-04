@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import QuestionInput from "./QuestionInput";
 import { Redirect } from 'react-router-dom';
-import Nav from "../login/Nav";
+import Navi from "../login/Nav";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import "./join.scss";
@@ -31,7 +31,7 @@ function handleSubmit(e){
 }
 return(
   <div className ="create--question">
-    <Nav/>
+    <Navi/>
   {roomHash && guestId ? <QuestionInput roomHash = {roomHash} guestId = {guestId} /> :
   <form className ="joinForm" onSubmit={handleSubmit}>
   <h1>Please enter the room you'd like to join.</h1>

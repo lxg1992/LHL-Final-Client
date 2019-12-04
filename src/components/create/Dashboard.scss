@@ -3,6 +3,7 @@
    grid-template-columns: repeat(3, 2fr);
    grid-template-rows: auto;
    width: 100vw;
+   margin-top: 7rem;
    .create--room {
       grid-column: 1/4;
       justify-content: center;
@@ -36,7 +37,7 @@
       position: relative;
       background: white;
       border-radius: 1rem; 
-      width: 26rem;  
+      width: 28rem;  
       margin-top: 1rem;
       .title {
          font-size: 1.5rem;

@@ -1,4 +1,5 @@
 import React from "react";
+import "./questioninput.scss";
 
 function Tag(props){
   return(

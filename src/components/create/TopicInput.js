@@ -153,8 +153,10 @@ class TopicInput extends Component {
         </div>
         <div>
           <Button variant="contained" className="back" onClick ={this.resetWrapper}>Back</Button>
-          <Button variant="contained" className="complete" type="submit" onClick={this.handleCreateRoom}>Complete</Button>
-          <input type ="checkbox" id = "anon" name="allowAnonymous" onChange ={this.handleAnonPosting}/> <label htmlFor="anon">Allow anonymous posting?</label>
+          <Button variant="contained" className="complete" type="submit" onClick={this.handleCreateRoom}>Complete </Button>
+          <div>
+            <input className="checkbox-Anonymouss" type ="checkbox" id = "anon" name="allowAnonymous" onChange ={this.handleAnonPosting}/> <label htmlFor="anon">Allow anonymous posting?</label>
+          </div>
         </div>
       </div>
     );
