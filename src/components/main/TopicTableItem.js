@@ -8,8 +8,8 @@ function TopicTableItem(props){
   return (
 
   
-    props.questions.slice(0,4).map((question) =>{
-      return <tr>{question}</tr>
+    props.questions.slice(0,4).map((question, index) =>{
+      return <tr key={index}><td>{question}</td></tr>
     })
   
   )

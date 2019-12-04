@@ -6,7 +6,7 @@ function TopicTable(props) {
   return (
     <div>
       <table>
-        <thead>{props.topicTable.tag}</thead>
+        <thead><tr><th>{props.topicTable.tag}</th></tr></thead>
         <tbody>
           <TopicTableItem questions = {props.topicTable.question}/>
         </tbody>

@@ -8,6 +8,7 @@ import Cookies from "universal-cookie";
 import TopicTable from "./TopicTable";
 import { getThemeProps } from "@material-ui/styles";
 import TopicTableContainer from "./TopicTableContainer";
+import { pseudoRandomBytes } from "crypto";
 
 export default function Chatroom() {
    console.log("This is inside chatroom", window.history.state.state.tags_created);
@@ -16,7 +17,7 @@ export default function Chatroom() {
    let roomId = window.history.state.state.room_id;
    console.log("This is the room id", roomId);
    let cookie = new Cookies();
-   let [topicTable, setTopicTable] = useState([]);
+   let [topicTable, setTopicTable] = useState();
 
 
 
@@ -49,15 +50,17 @@ export default function Chatroom() {
       // console.log(topicTableArray);
       // console.log(tagCountObject);
       let topicTableArray = Object.keys(tagCountObject).map((tag) => {
-         return {tag: tag, question: tagCountObject[tag].question, count: tagCountObject[tag].count};
+         return {tag: tag, question: [... new Set(tagCountObject[tag].question)], count: tagCountObject[tag].count};
       });
       
       topicTableArray.sort(function(a,b){
          return b.count - a.count;
       })
-
+  
+      //  console.log("This is a filter test", filterTest);
       console.log("This is the topic table Array", topicTableArray);
-      setTopicTable([...topicTableArray]);
+      // tagCountObject = {};
+      setTopicTable(topicTableArray);
    }
    // for (const question in questions){
    //    setTopicTable([...topicTable, {questions: questions[question].query, tags: questions[question].tags_selected}]);
