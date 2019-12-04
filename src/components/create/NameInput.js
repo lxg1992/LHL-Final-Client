@@ -18,7 +18,7 @@ function NameInput(props) {
     setNameSubmitted(true);
     }
     else{
-      setErrorState("Please enter a room name.");
+      setErrorState("Please enter your room name");
       // console.log("This is nameSubmitted", nameSubmitted);
     }
   }
@@ -32,7 +32,7 @@ function NameInput(props) {
   return (
     <div className="name__container">
     {console.lo}
-    {errorState && <div className="error"><p>{errorState}</p></div>}
+    {errorState && <div className="error">{errorState}</div>}
       {backButtonClicked && <CreateRoom />}
 
       {!backButtonClicked && nameSubmitted ? <DateInput name={roomName} reset={reset} reinitializeEverything={props.reinitializeEverything} handleCreateRoomComplete={props.handleCreateRoomComplete} /> :

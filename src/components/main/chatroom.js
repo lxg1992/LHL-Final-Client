@@ -69,21 +69,27 @@ export default function Chatroom() {
 
 
    return (
-      <div className="chatroom">
-         <h2>Room Hash: {roomHash}</h2>
-         {topicTable && console.log("This is the topicTable state", topicTable)}
-         {topicTable && console.log("This is the length of the topicTable", topicTable.length)}
-         <div className="chatroom-question">
-            <div className="topic">
-               <h4 className="today-topic">Today topic: </h4>
-            { tagsCreated.map((tags, index) => { 
-               return <div className="tag-topic" key = {index}>{tags}</div>;
-            })}
-            </div>
-            <QuestionOutput fetchTopicTableInfo={fetchTopicTableInfo}/>
+      <div className="chatroom--container">
+         <div className="chatroom">
+            <h2>Room Hash: {roomHash}</h2>
+            {topicTable && console.log("This is the topicTable state", topicTable)}
+            {topicTable && console.log("This is the length of the topicTable", topicTable.length)}
+            <div className="chatroom-question">
+               <div className="topic">
+                  <h4 className="today-topic">Today topic: </h4>
+                  { tagsCreated.map((tags, index) => { 
+                     return <div className="tag-topic" key = {index}>{tags}</div>;
+                  })}
+               </div>
+               <QuestionOutput fetchTopicTableInfo={fetchTopicTableInfo}/>
             </div>
             <Button className="closeroom" onClick = {handleCloseRoom}>X Close</Button>
+         </div>
+
+         <div className="statistic--table">
+            <h3>Frequence questions</h3>
             {topicTable && <TopicTableContainer topicTable = {topicTable}/>}
+         </div>
       </div>
    )
 }

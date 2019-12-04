@@ -36,7 +36,7 @@ return(
   <form className ="joinForm" onSubmit={handleSubmit}>
   <h1>Please enter the room you'd like to join.</h1>
   <div className="submitjoin">
-  <input type = "text" name ="roomHash"/>
+  <input type = "text" name ="roomHash" placeholder="Insert your question here"/>
   <Button type ="submit" variant="contained">Join</Button>
   </div>
   </form>

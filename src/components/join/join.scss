@@ -20,8 +20,17 @@
       button {
          width: 5rem;
          margin: auto;
-         background: rgb(24, 176, 73);
          color: white;
+         background: rgb(108, 211, 175);
+         border: 2px solid rgb(108, 108, 108);
+         border-radius: 10px;
+         padding: 0.2rem;
+         font-size: 1rem;
+         font-family: 'Playfair Display', serif;
+         font-weight: bold;
+      }
+      button:hover {
+         background: rgb(24, 176, 73);
       }
    }
 }

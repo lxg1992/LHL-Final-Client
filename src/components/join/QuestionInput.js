@@ -202,7 +202,7 @@ class QuestionInput extends Component {
           <div className="tagList">
             <TagList tagList={this.state.tags} handleCheck={this.handleCheck} />
           </div>
-          {this.state.postSuccessMessage ? <h1>{this.state.postSuccessMessage}</h1> : null}
+          {this.state.postSuccessMessage ? <div className="success">{this.state.postSuccessMessage}</div> : null}
           {this.state.errorMessage ? <div className= "error">{this.state.errorMessage} </div> : null}
           <input className="input--question" type="text" name="question" wrap="hard" placeholder="please enter your quesition here" />
           <Button type="submit" variant="contained" disabled={this.state.buttonDisabled}>Submit</Button>
