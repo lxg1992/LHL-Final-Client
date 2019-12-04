@@ -90,12 +90,18 @@
          top: 0;
          z-index: 2;
       }
+      table{
+         margin: 0rem 1rem 1rem;
+         border: 2px solid rgb(108, 108, 108) ;
+      }
       th{
          margin: 0.5rem 0.5rem ;
          background: rgb(244, 92, 81);
          color: white;
          border-top-right-radius: 5px;
          border-bottom-right-radius: 5px;
+         width: 20rem;
+         text-align: center;
       }
       td {
          padding: 0rem 0.5rem ;
