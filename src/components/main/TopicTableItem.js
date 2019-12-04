@@ -9,7 +9,7 @@ function TopicTableItem(props){
 
   
     props.questions.slice(0,4).map((question, index) =>{
-      return <tr key={index}><td>{question}</td></tr>
+      return <tr key={index}><td>{index + 1}. {question}</td></tr>
     })
   
   )
