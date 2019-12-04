@@ -11,14 +11,20 @@ class QuestionInput extends Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
-    const cookie = new Cookies();
+    this.disableButton = this.disableButton.bind(this);
+    this.enableButton = this.enableButton.bind(this);
+    
 
+    const cookie = new Cookies();
+    // this.buttonDisabled = false;
     // console.log(window.history.state.state.guest_id);
     this.state = {
       guest_id: props.guestId || window.history.state.state.guest_id,
       messages: [],
       tags: [],
-      hash: props.roomHash || window.history.state.state.roomHash
+      hash: props.roomHash || window.history.state.state.roomHash,
+      buttonDisabled: false,
+      postSuccessMessage: ""
     }
     // this.state = {
     //   guest_id: cookie.get("user_id"),
@@ -141,17 +147,50 @@ class QuestionInput extends Component {
   // componentDidUpdate(){
   //   console.log("componenet did update")
   // }
+  // disableButton(){
+  //   this.buttonEnabled = !this.buttonEnabled;
+  //   setTimeout(() => {
+  //     this.enableButton()
+  //   })
+
+  // }
+  disableButton(){
+    this.setState((prevState) =>{
+      return(
+        {
+          buttonDisabled: !prevState.buttonDisabled,
+          postSuccessMessage: "Post Successful"
+        }
+      )
+    })
+    setTimeout(() => {
+      this.enableButton();
+    }, 10000)
+  }
+
+  enableButton(){
+    this.setState((prevState) =>{
+      return(
+        {
+          buttonDisabled: !prevState.buttonDisabled,
+          postSuccessMessage: ""
+        }
+      )
+    })
+
+    // this.state.buttonDisabled = false;
+  }
 
   render() {
     return (
       <div className="question--input">
         <h1>What are your questions?</h1>
         {console.log(this.state)}
-
+        {this.state.postSuccessMessage && <h1>{this.state.postSuccessMessage}</h1>}
         <form onSubmit={this.handleSubmit}>
           <TagList tagList={this.state.tags} handleCheck={this.handleCheck} />
           <input className="input--question" type="text" name="question" wrap="hard" placeholder="please enter your quesition here" />
-          <Button type="submit" variant="contained">Submit</Button>
+          <Button type="submit" variant="contained" onClick ={this.disableButton} disabled={this.state.buttonDisabled}>Submit</Button>
 
         </form>
 

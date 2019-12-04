@@ -29,28 +29,35 @@ export default function Chatroom() {
          })
    }
    function fetchTopicTableInfo(questions) {
-      let topicTableArray = [];
+      // let topicTableArray = [];
       let tagCountObject = {};
       for (let question of questions) {
          for (let tag of question.tags_selected) {
             let tagUC = tag.toString().toUpperCase();
             if (tagCountObject[tagUC] === undefined) {
                tagCountObject[tagUC] = { question: [question.query], count: 1 };
-               topicTableArray = [...topicTableArray, { tag: tagUC, question: [question.query], count: 1 }];
+               // topicTableArray = [...topicTableArray, tagCountObject[tagUC]];
             }
             else {
                tagCountObject[tagUC] = { question: [...tagCountObject[tagUC].question, question.query], count: tagCountObject[tagUC]["count"] += 1 };
-               topicTableArray = [...topicTableArray,  {tag: tagUC, ...tagCountObject[tagUC]}];
+               // topicTableArray = [...topicTableArray, tagCountObject[tagUC] ];
             }
          }
       }
       // console.log("This is tagCountObject);
-      console.log(topicTableArray);
+      // topicTableArray = [...topicTableArray, tagCountObject];
+      // console.log(topicTableArray);
       // console.log(tagCountObject);
+      let topicTableArray = Object.keys(tagCountObject).map((tag) => {
+         return {tag: tag, question: tagCountObject[tag].question, count: tagCountObject[tag].count};
+      });
+      
       topicTableArray.sort(function(a,b){
          return b.count - a.count;
       })
-      setTopicTable(topicTableArray);
+
+      console.log("This is the topic table Array", topicTableArray);
+      setTopicTable([...topicTableArray]);
    }
    // for (const question in questions){
    //    setTopicTable([...topicTable, {questions: questions[question].query, tags: questions[question].tags_selected}]);
@@ -61,6 +68,8 @@ export default function Chatroom() {
    return (
       <div className="chatroom">
          <h2>Room Hash: {roomHash}</h2>
+         {topicTable && console.log("This is the topicTable state", topicTable)}
+         {topicTable && console.log("This is the length of the topicTable", topicTable.length)}
          <div className="chatroom-question">
             <div className="topic">
                <h4 className="today-topic">Today topic: </h4>
@@ -68,10 +77,10 @@ export default function Chatroom() {
                return <div className="tag-topic" key = {index}>{tags}</div>;
             })}
             </div>
-            <QuestionOutput/>
-            {topicTable.length > 0 && <TopicTableContainer topicTable = {topicTable}/>}
-         </div>
-         <Button className="closeroom" onClick = {handleCloseRoom}>X Close</Button>
+            <QuestionOutput fetchTopicTableInfo={fetchTopicTableInfo}/>
+            </div>
+            <Button className="closeroom" onClick = {handleCloseRoom}>X Close</Button>
+            {topicTable && <TopicTableContainer topicTable = {topicTable}/>}
       </div>
    )
 }
