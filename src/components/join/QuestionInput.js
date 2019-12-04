@@ -184,14 +184,14 @@ class QuestionInput extends Component {
   render() {
     return (
       <div className="question--input">
-        <h1>What are your questions?</h1>
-        {console.log(this.state)}
-        {this.state.postSuccessMessage && <h1>{this.state.postSuccessMessage}</h1>}
         <form onSubmit={this.handleSubmit}>
-          <TagList tagList={this.state.tags} handleCheck={this.handleCheck} />
+          <h2>What are your questions?</h2>
+          <div className="tagList">
+            <TagList tagList={this.state.tags} handleCheck={this.handleCheck} />
+          </div>
+          {this.state.postSuccessMessage && <h1>{this.state.postSuccessMessage}</h1>}
           <input className="input--question" type="text" name="question" wrap="hard" placeholder="please enter your quesition here" />
           <Button type="submit" variant="contained" onClick ={this.disableButton} disabled={this.state.buttonDisabled}>Submit</Button>
-
         </form>
 
       </div>

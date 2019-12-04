@@ -1,13 +1,70 @@
 .list-chatroom {
    text-decoration: none;
-   padding: 1rem;
-   .chatbox-question {
+   padding: 1.5rem;
+   .chatbox {
       position: relative;
+      margin-top: 1rem;
+      padding: 5% 1rem 0.5rem 1rem;
+      border: 1px solid rgb(108, 108, 108);
+      border-radius: 10px;
+      transition-duration: 0.5s;
       .userID-chatroom {
          position: absolute;
+         border-radius: 5px;
+         padding: 1px;
+         background: rgb(173, 220, 171);
+         top: -5%;
+         left: 5%;
+      }
+      .chatbox--question {
+         .question {
+            background: rgb(108, 108, 108);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 10px;
+         }
+         .tag--relate{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            h4 {
+               background: rgb(102, 141, 229);
+               color: white;
+            }
+         }
       }
    }
    .ban {
-
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      border-top: 1px solid rgb(108, 108, 108);
+      margin-top: 0.5rem;
+      padding: 0.5rem;
+      h4{
+         color: rgb(24, 176, 73);
+         i {
+            font-size: 0.8rem;
+            white-space: pre-line;
+         }
+         span{
+            color: rgb(238, 238, 238);
+         }
+      }
+      button{
+         padding: 0;
+         color: rgb(244, 92, 81);
+      }
+      button:hover{
+         color: white;
+         background: rgb(244, 92, 81)  ;
+      }
    }
+
+   .chatbox:hover {
+      box-shadow: 5px 5px 5px;
+      transition-duration: 0.5s;
+   }
+
 }

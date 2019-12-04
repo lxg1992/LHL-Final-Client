@@ -1,13 +1,13 @@
 import React from "react";
 import "./userid.scss";
 import Button from "@material-ui/core/Button";
-import Nav from "../login/Nav";
+import Navi from "../login/Nav";
 import { Link } from "react-router-dom";
 
 export default function Userid() {
   return (
     <div className="userid--layout">
-      <Nav/>
+      <Navi/>
       <div className="joincreateForm">
         <h2>WHAT DO YOU WANT TO DO TODAY?</h2>
         <Link to="/create">

@@ -1,6 +1,6 @@
 import React from "react";
 import LoginForm from "./login-form.js";
-import Nav from "./Nav";
+import Navi from "./Nav";
 import RegisterForm from "./register-form.js";
 import "./login.scss";
 import SwipeableViews from 'react-swipeable-views';
@@ -25,7 +25,7 @@ export default function Login() {
   return (
     <div className="container--login">
     
-    <Nav/>
+    <Navi/>
     
     <AppBar color="default" className="login--bar">
     <Tabs

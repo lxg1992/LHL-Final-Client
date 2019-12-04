@@ -106,3 +106,10 @@
       color: white;
    }
 }
+
+
+@media screen and (max-width: 500px) {
+   .name__container {
+      width: 80vw;
+   }
+}
