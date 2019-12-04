@@ -82,7 +82,12 @@
    }
 
 
-   @media screen and (max-width: 800px) {
-
+   @media screen and (max-width: 500px) {
+      .create--room {
+         margin: auto;
+      }
+      .display--rooms {
+         margin-left: 1rem;
+      }
    }
 }
