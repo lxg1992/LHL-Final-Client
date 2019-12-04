@@ -16,27 +16,27 @@
       margin-top: 7rem;
    }
 
-   @media screen and (max-width: 1100px) {
-      .login--bar {
-         width: 40vw;
-      }
-   }
-
-   @media screen and (max-width: 900px) {
-      .login--bar {
-         width: 45vw;
-      }
-   }
-
-   @media screen and (max-width: 800px) {
+   @media screen and (max-width: 1250px) {
       .login--bar {
          width: 50vw;
       }
    }
 
+   @media screen and (max-width: 1000px) {
+      .login--bar {
+         width: 60vw;
+      }
+   }
+
+   @media screen and (max-width: 800px) {
+      .login--bar {
+         width: 70vw;
+      }
+   }
+
    @media screen and (max-width: 600px) {
       .login--bar {
-         width: 80vw;
+         width: 85vw;
       }
    }
 

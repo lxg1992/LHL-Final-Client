@@ -3,18 +3,21 @@
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   height: 20rem;
+   height: 15rem;
    color: rgb(108, 108, 108);
    h2 {
-      margin-bottom: 1rem;
+      padding: 1rem 1rem 2rem 1rem;
+      margin: auto;
+      text-align: center;
    }
    .askAnon {
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 90%;
       input {
          margin-bottom: 1rem;
-         width: 20rem;
+         width: 80%;
          border-radius: 10rem;
          border: 1px solid rgb(108, 108, 108);
          line-height: 2.5rem;
