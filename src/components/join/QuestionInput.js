@@ -181,7 +181,8 @@ class QuestionInput extends Component {
       return (
         {
           buttonDisabled: !prevState.buttonDisabled,
-          postSuccessMessage: "Post Successful"
+          postSuccessMessage: "Post Successful",
+          errorMessage: ""
         }
       )
     })
