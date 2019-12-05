@@ -13,7 +13,7 @@ function DateInput(props) {
   const [errorState, setErrorState] = useState("");
 
   let startDateModifier= new Date();
-  startDateModifier = startDateModifier.setDate(startDateModifier.getDate());
+  startDateModifier = startDateModifier.setDate(startDateModifier.getDate() - 1);
   let startDateNow = new Date(startDateModifier);
 
   let timeEndModifier = new Date();
