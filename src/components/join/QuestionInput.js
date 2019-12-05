@@ -74,8 +74,11 @@ class QuestionInput extends Component {
     // let symbolFilter = message.replace(/[?]/g,"");
 
     let doc1 = nlp(message);
+    doc1.nouns().toSingular();
+    
     let nouns = doc1.match('#Noun').not("#Pronoun")
     let nlpArray = nouns.map(d => {
+
       return d.text("reduced");
     })
 
