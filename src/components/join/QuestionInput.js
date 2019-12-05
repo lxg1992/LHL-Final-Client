@@ -60,7 +60,7 @@ class QuestionInput extends Component {
       )
     })
   }
-  clearForm(){
+  clearForm() {
     // console.log(document.getElementsByName("question")[0].value());
     document.getElementById("question-form").reset();
   }
@@ -69,7 +69,7 @@ class QuestionInput extends Component {
     e.preventDefault();
 
     let message = e.target.elements.question.value;
-    
+
 
     // let symbolFilter = message.replace(/[?]/g,"");
 
@@ -83,7 +83,7 @@ class QuestionInput extends Component {
     // let messageModifed = message.replace(/\?/g, "");
     // let messageChecker = nlp(message).nouns().toTitleCase().normalize({punctuation: true}).out('array');
     // let messageChecker = nlp(messageModifed).nouns().toTitleCase().normalize({punctuation: true}).splitBefore(",").out('array');
-   
+
     // messageChecker.map(message =>{
     //   if (message[message.length - 1] === "?"){
     //     let thinger = message[message.length - 1].pop();
@@ -91,10 +91,10 @@ class QuestionInput extends Component {
     //   }
     // });
 
- 
+
 
     console.log("This is supposed to be NLP", nlpArray);
-    
+
     // console.log(e.target.getAttribute("checkbox"));
     // message = "";
     this.setState((prevState) => {
@@ -110,8 +110,8 @@ class QuestionInput extends Component {
       queryTags.forEach(function (x) {
         selectedTags.push(Object.keys(x)[0]);
       });
-      if (nlpArray.length > 0){
-      selectedTags = [...selectedTags, ...nlpArray];
+      if (nlpArray.length > 0) {
+        selectedTags = [...selectedTags, ...nlpArray];
       }
       // console.log(selectedTags);
       return (
@@ -127,26 +127,25 @@ class QuestionInput extends Component {
       }
 
       console.log(output)
-      
+
       console.log(axios)
       return axios.post(`/rooms/${this.state.hash}/questions`, output)
         .then(res => {
           console.log(res);
           this.disableButton();
-          this.clearForm();
         })
-        .catch(error=> {
+        .catch(error => {
           console.log(error.response.data.error)
-          this.setState(() =>{
+          this.setState(() => {
             return (
               {
                 errorMessage: error.response.data.error
               }
             )
           })
-        
+
         })
-        
+
     });
 
 
@@ -173,23 +172,24 @@ class QuestionInput extends Component {
   //   })
 
   // }
-  disableButton(){
-      this.setState((prevState) =>{
-        return(
-          {
-            buttonDisabled: !prevState.buttonDisabled,
-            postSuccessMessage: "Post Successful"
-          }
-        )
-      })
-      setTimeout(() => {
-        this.enableButton();
-      }, 10000);
+  disableButton() {
+    this.clearForm();
+    this.setState((prevState) => {
+      return (
+        {
+          buttonDisabled: !prevState.buttonDisabled,
+          postSuccessMessage: "Post Successful"
+        }
+      )
+    })
+    setTimeout(() => {
+      this.enableButton();
+    }, 10000);
   }
 
-  enableButton(){
-    this.setState((prevState) =>{
-      return(
+  enableButton() {
+    this.setState((prevState) => {
+      return (
         {
           buttonDisabled: !prevState.buttonDisabled,
           postSuccessMessage: ""
@@ -209,7 +209,7 @@ class QuestionInput extends Component {
             <TagList tagList={this.state.tags} handleCheck={this.handleCheck} />
           </div>
           {this.state.postSuccessMessage ? <div className="success">{this.state.postSuccessMessage}</div> : null}
-          {this.state.errorMessage ? <div className= "error">{this.state.errorMessage} </div> : null}
+          {this.state.errorMessage ? <div className="error">{this.state.errorMessage} </div> : null}
           <input className="input--question" type="text" name="question" wrap="hard" placeholder="please enter your quesition here" />
           <Button type="submit" variant="contained" disabled={this.state.buttonDisabled}>Submit</Button>
 
