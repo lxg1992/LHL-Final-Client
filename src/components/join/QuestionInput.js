@@ -13,7 +13,7 @@ class QuestionInput extends Component {
     this.handleCheck = this.handleCheck.bind(this);
     this.disableButton = this.disableButton.bind(this);
     this.enableButton = this.enableButton.bind(this);
-    
+    this.clearForm = this.clearForm.bind(this);
 
     const cookie = new Cookies();
     // this.buttonDisabled = false;
@@ -60,12 +60,17 @@ class QuestionInput extends Component {
       )
     })
   }
-
+  clearForm(){
+    // console.log(document.getElementsByName("question")[0].value());
+    document.getElementById("question-form").reset();
+  }
 
   handleSubmit(e) {
     e.preventDefault();
 
     let message = e.target.elements.question.value;
+    
+
     // let symbolFilter = message.replace(/[?]/g,"");
 
     let doc1 = nlp(message);
@@ -91,7 +96,7 @@ class QuestionInput extends Component {
     console.log("This is supposed to be NLP", nlpArray);
     
     // console.log(e.target.getAttribute("checkbox"));
-
+    // message = "";
     this.setState((prevState) => {
       let selectedTags = [];
       let queryTags = prevState.tags.filter(function (tag) {
@@ -128,6 +133,7 @@ class QuestionInput extends Component {
         .then(res => {
           console.log(res);
           this.disableButton();
+          this.clearForm();
         })
         .catch(error=> {
           console.log(error.response.data.error)
@@ -197,7 +203,7 @@ class QuestionInput extends Component {
   render() {
     return (
       <div className="question--input">
-        <form onSubmit={this.handleSubmit}>
+        <form id="question-form" onSubmit={this.handleSubmit}>
           <h1>What are your questions?</h1>
           <div className="tagList">
             <TagList tagList={this.state.tags} handleCheck={this.handleCheck} />
