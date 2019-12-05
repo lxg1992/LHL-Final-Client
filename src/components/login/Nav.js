@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import HomeIcon from "@material-ui/icons/Home";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Navbar, Nav } from "react-bootstrap";
+import DashboardIcon from '@material-ui/icons/Dashboard';
 export default function Navi(props) {
   const cookie = new Cookies();
 
@@ -29,6 +30,7 @@ export default function Navi(props) {
           {cookie.get("email") && (
             <Nav.Link href="/create">
             <div className="account">
+              <DashboardIcon/>
             Dashboard
             </div>
             </Nav.Link>
@@ -38,7 +40,7 @@ export default function Navi(props) {
                <div className="account">
                   <i className="fa fa-user-circle" aria-hidden="true"></i>
                <p>
-                  Welcome back,{" "}
+                  Welcome,{" "}
                   <strong>{cookie.get("email").replace(/@[^ ]*/g, "")}</strong>
                </p>
                </div>
