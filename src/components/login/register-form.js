@@ -5,6 +5,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import Cookies from "universal-cookie";
 import axios from "axios";
+import herokuURL from "../../env"
 
 const RegisterForm = () => (
 
@@ -12,7 +13,7 @@ const RegisterForm = () => (
   <Formik
     initialValues={{first_name: "", last_name: "", email: "", password: "", confirmPassword: ""}}
     onSubmit={(values, {setSubmitting}) => {
-      axios.post(`users/register`, {email: values.email, first_name: values.first_name, last_name: values.last_name, password: values.confirmPassword })
+      axios.post(`${herokuURL}/users/register`, {email: values.email, first_name: values.first_name, last_name: values.last_name, password: values.confirmPassword })
       .then(res => {
         const cookies = new Cookies();
         console.log(res);

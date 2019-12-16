@@ -3,6 +3,7 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 import "./AnonJoin.scss";
 import Button from "@material-ui/core/Button";
+import herokuURL from "../../env"
 import {
   BrowserRouter as Router,
   Switch,
@@ -27,7 +28,7 @@ function handleSubmit(e){
   let roomHash = e.target.elements.roomHash.value;
   setRoomHash(roomHash);
 
-  axios.post(`rooms/join/anonymous`, {room_hash: roomHash })
+  axios.post(`${herokuURL}/rooms/join/anonymous`, {room_hash: roomHash })
   .then(res => {
     console.log(res);
     // setGuestId(res.data[0].id);

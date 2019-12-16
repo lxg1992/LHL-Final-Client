@@ -5,6 +5,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import herokuURL from "../../env"
 
 const LoginForm = () => (
   
@@ -13,7 +14,7 @@ const LoginForm = () => (
   
     initialValues={{ email: "", password: "" }}
     onSubmit={(values, { setSubmitting }) => {
-      axios.post(`users/login`, {email: values.email, password: values.password })
+      axios.post(`${herokuURL}/users/login`, {email: values.email, password: values.password })
       .then(res => {
         const cookies = new Cookies();
         console.log(res);

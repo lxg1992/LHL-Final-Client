@@ -56,5 +56,5 @@
     "node-sass": "^4.11.0",
     "prop-types": "^15.7.2"
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "https://nameless-headland-31743.herokuapp.com/"
 }

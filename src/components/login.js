@@ -1,6 +1,7 @@
 import React from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
+import herokuURL from "../env"
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,7 +22,7 @@ export default function Login() {
     console.log(e.target.elements.password.value);
     const email = e.target.elements.email.value;
     const password = e.target.elements.password.value;
-    axios.post(`users/login`, { email, password})
+    axios.post(`${herokuURL}/users/login`, { email, password})
     .then(res => {
       console.log(res);
       console.log(res.data.token);

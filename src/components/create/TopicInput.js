@@ -4,6 +4,7 @@ import axios from "axios";
 import Button from "@material-ui/core/Button";
 import "./Nameinput.scss";
 import Cookies from "universal-cookie";
+import herokuURL from "../../env";
 class TopicInput extends Component {
   constructor(props) {
     super(props);
@@ -110,7 +111,7 @@ class TopicInput extends Component {
     // console.log("akgkdfnkgs");
     // window.location.reload()
     
-    axios.post("rooms/", this.state)
+    axios.post(`${herokuURL}/rooms`, this.state)
       .then(res => {
         // console.log(res.data.room_hash);
         console.log(res.data[0].room_hash);

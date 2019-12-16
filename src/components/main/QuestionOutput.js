@@ -3,6 +3,7 @@ import axios from "axios";
 import QuestionList from "./QuestionList";
 import "./QuestionOutput.scss";
 import LiveChart from "./LiveChart";
+import herokuURL from "../../env"
 // class QuestionOutput extends Component {
 //   constructor(props){
 //     super(props);
@@ -65,7 +66,7 @@ function QuestionOutput(props) {
   const hash = window.history.state.state.roomHash;
   console.log("This is the props being passed in", window.history.state.state.roomHash);
   useEffect(() => {
-    axios.get(`/rooms/${hash}/questions`)
+    axios.get(`${herokuURL}/rooms/${hash}/questions`)
       .then(res => {
         if (res.data !== questions)
           setQuestions(res.data);
@@ -76,7 +77,7 @@ function QuestionOutput(props) {
     useEffect(() => {
       const timer = setInterval(() => {
         console.log("5 seconds have passed");
-      axios.get(`/rooms/${hash}/questions`)
+      axios.get(`${herokuURL}/rooms/${hash}/questions`)
         .then(res => {
           if(!res.data.error){
           console.log(res)

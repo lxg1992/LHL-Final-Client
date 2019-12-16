@@ -5,6 +5,7 @@ import "./questioninput.scss";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import nlp from "compromise";
+import herokuURL from "../../env"
 
 class QuestionInput extends Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class QuestionInput extends Component {
 
 
   componentDidMount() {
-    axios.get(`/rooms/${this.state.hash}/tags`)
+    axios.get(`${herokuURL}/rooms/${this.state.hash}/tags`)
       .then(res => {
         console.log(res.data[0].tags_created);
         let tagList = res.data[0].tags_created;
@@ -132,7 +133,7 @@ class QuestionInput extends Component {
       console.log(output)
 
       console.log(axios)
-      return axios.post(`/rooms/${this.state.hash}/questions`, output)
+      return axios.post(`${herokuURL}/rooms/${this.state.hash}/questions`, output)
         .then(res => {
           console.log(res);
           this.disableButton();

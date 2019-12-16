@@ -10,6 +10,7 @@ import { getThemeProps } from "@material-ui/styles";
 import TopicTableContainer from "./TopicTableContainer";
 import { pseudoRandomBytes } from "crypto";
 import LiveChart from "./LiveChart";
+import herokuURL from "../../env"
 
 
 export default function Chatroom() {
@@ -25,7 +26,7 @@ export default function Chatroom() {
 
    function handleCloseRoom() {
       // axios.patch("/rooms/")
-      axios.patch("rooms/finish", { host_id: cookie.get("user_id"), room_id: roomId })
+      axios.patch(`${herokuURL}/rooms/finish`, { host_id: cookie.get("user_id"), room_id: roomId })
          .then(res => {
             console.log(res);
             window.location = "/create";

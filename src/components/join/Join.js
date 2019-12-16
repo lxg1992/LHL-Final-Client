@@ -6,6 +6,7 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 import "./join.scss";
 import Button from "@material-ui/core/Button";
+import herokuURL from "../../env";
 
 export default function Join(props){
 const [roomHash, setRoomHash ] = useState();
@@ -19,7 +20,7 @@ function handleSubmit(e){
   let roomHash = e.target.elements.roomHash.value;
   setRoomHash(roomHash);
 
-  axios.post(`rooms/join/`, {user_id: cookie.get("user_id"), room_hash: roomHash })
+  axios.post(`${herokuURL}/rooms/join/`, {user_id: cookie.get("user_id"), room_hash: roomHash })
   .then(res => {
     console.log(res);
     // console.log(res.data[0]);

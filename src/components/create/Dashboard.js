@@ -8,6 +8,10 @@ import Cookies from "universal-cookie";
 import "./Dashboard.scss";
 import "./Rooms.scss";
 import "../join/QuestionInput";
+import herokuURL from "../../env";
+
+
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -42,9 +46,9 @@ function Dashboard(props) {
   useEffect(() => {
     Promise.all(
       [
-        Promise.resolve(axios.get(`users/${user}/rooms/current`)),
-        Promise.resolve(axios.get(`users/${user}/rooms/future`)),
-        Promise.resolve(axios.get(`users/${user}/rooms/past`))])
+        Promise.resolve(axios.get(`${herokuURL}/users/${user}/rooms/current`)),
+        Promise.resolve(axios.get(`${herokuURL}/users/${user}/rooms/future`)),
+        Promise.resolve(axios.get(`${herokuURL}/users/${user}/rooms/past`))])
       .then(res => {
         // console.log(res[0].data)
         // console.log(res[1].data)
@@ -60,15 +64,15 @@ function Dashboard(props) {
     console.log(429);
     console.log(parseInt("429"));
     console.log(roomToDelete);
-    axios.delete(`rooms/delete`, { data: { host_id: user, room_id: roomToDelete } })
+    axios.delete(`${herokuURL}/rooms/delete`, { data: { host_id: user, room_id: roomToDelete } })
       .then(res => {
         console.log(res);
       }).then(() => {
         Promise.all(
           [
-            Promise.resolve(axios.get(`users/${user}/rooms/current`)),
-            Promise.resolve(axios.get(`users/${user}/rooms/future`)),
-            Promise.resolve(axios.get(`users/${user}/rooms/past`))])
+            Promise.resolve(axios.get(`${herokuURL}/users/${user}/rooms/current`)),
+            Promise.resolve(axios.get(`${herokuURL}/users/${user}/rooms/future`)),
+            Promise.resolve(axios.get(`${herokuURL}/users/${user}/rooms/past`))])
           .then(res => {
             // console.log(res[0].data)
             // console.log(res[1].data)
@@ -122,9 +126,9 @@ function Dashboard(props) {
   const handleCreateRoomComplete = () => {
     Promise.all(
       [
-        Promise.resolve(axios.get(`users/${user}/rooms/current`)),
-        Promise.resolve(axios.get(`users/${user}/rooms/future`)),
-        Promise.resolve(axios.get(`users/${user}/rooms/past`))])
+        Promise.resolve(axios.get(`${herokuURL}/users/${user}/rooms/current`)),
+        Promise.resolve(axios.get(`${herokuURL}/users/${user}/rooms/future`)),
+        Promise.resolve(axios.get(`${herokuURL}/users/${user}/rooms/past`))])
       .then(res => {
         // console.log(res[0].data)
         // console.log(res[1].data)
@@ -136,7 +140,7 @@ function Dashboard(props) {
   }
 
   function handleRoomActivation(roomToActivate) {
-    axios.patch(`rooms/activate`, { room_id: roomToActivate, host_id: user })
+    axios.patch(`${herokuURL}/rooms/activate`, { room_id: roomToActivate, host_id: user })
       .then(res => {
         console.log(res);
         setRoomHash(res.data[0].room_hash)
@@ -147,7 +151,7 @@ function Dashboard(props) {
   
   function handleAnalysis(roomToAnalyze){
     console.log(roomToAnalyze);
-    axios.get(`/questions/${roomToAnalyze}/analysis`)
+    axios.get(`${herokuURL}/questions/${roomToAnalyze}/analysis`)
     .then(res =>{
       console.log(res);
       history.push({pathname: "/analysis", state: {getIndividualTagsCount: res.data.getIndividualTagsCount, getQuestionsInvolvingTags: res.data.getQuestionsInvolvingTags, getTotalGuestsCount: res.data.getTotalGuestsCount, getTotalQuestionsByGuestId: res.data.getTotalQuestionsByGuestId, getTotalQuestionsCount:res.data.getTotalQuestionsCount, getTotalTagsCount: res.data.getTotalTagsCount}})
