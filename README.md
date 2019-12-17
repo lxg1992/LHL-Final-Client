@@ -111,6 +111,18 @@ Within the root directory of the server, in your terminal type command ```npm ru
 
 This will create the tables and seed some data into them
 
-Your back-end is now set up
+If you navigate to ```localhost:3001/users``` in your browser, you should see some users generated in a JSON format. If you do not see them, something went wrong.
+
+### Client
+
+If you have not cloned this repository, do so now.
+
+Within the repository on your local machine, at the root level run ```npm install``` in the terminal
+
+After it is finished, type ```npm run start```
+
+You can attempt to login with a user ```fl@email.com``` with password ```fl``` (that's FL in lower case)
+
+Your application is now set up
 
 
