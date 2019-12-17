@@ -1,68 +1,116 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##### This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# InQuire
 
-In the project directory, you can run:
+### Client-Side - Main
 
-### `npm start`
+This is the client-side and the main repository for the InQuire project. Server-side code is available [here](https://github.com/lxg1992/LHL-Final-Server
+)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Online Instance
+There is a demo of this application hosted on Netlify pinging a Heroku server over here:
 
-### `npm test`
+https://hungry-varahamihira-549516.netlify.com/
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+It takes up to a minute to restart the Heroku instance that serves the back-end to this project
 
-### `npm run build`
+> If you encounter a "no such resource on this server" error then simply remove the trailing slashes after the default url
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Motivation
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+The team behind the project are all students from universities. We've all had an experience of sitting in an auditorium with 300 students with a burning question but being unable to ask it due to:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* The professor not accepting questions during the lecture
 
-### `npm run eject`
+  Which would lead to all the information presented onward to be rendered less useful as the foundational knowledge was not cemented properly
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* Social anxiety/speech impediment/poor language communication skills
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  All too common, especially as immigrants coming to a country with a different primary language, the discomfort of standing in front of an auditorium and speaking can be paralyzing. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* Reputation/uncertainty of the validity of the question
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  And finally, the simplest and the silliest reason of them all. We simply don't know if the question we are asking is "stupid" and we don't want to seem like an idiot in front of the whole audience. 
 
-## Learn More
+## Solution
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  ### Host
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  ![Host-Dash](./docs/dash.png)
+  ![Host-Create](./docs/dash-topics.png)
 
-### Code Splitting
+  As a professor/instructor/host, you may not allow for questions to be asked which would disrupt the flow of information, but nevertheless, it is important to know where the classroom stands in regards to the topic/information presented. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+You will not know the individuals asking the questions, but you will know if it is the same individual asking several questions by their unique guest hash that is randomly generated for each unique room (and if you deem their questions inappropriate then you can promptly ban them from participating in the room)
 
-### Analyzing the Bundle Size
+![Room View](./docs/answer.png)
+![Seed view](./docs/room.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+After each room session is finished, you have access to the analytical product of that specific room. You can see the classroom participation as well as various analytical datae related to the room in examination
 
-### Making a Progressive Web App
+![Analysis](./docs/analysis.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Ideally you will have the software running in the classroom/online teaching room on a monitor that is not seen by the audience. It will be there only as your feedback system.
 
-### Advanced Configuration
+Depending on the size of the classroom or the prevalence of certain questions being asked in high concentration, you can decide whether to explain something more in depth during the lecture, or make a note of a lot of questions being asked during a particular time of the lecture/seminar/presentation, prompting for a better explanation of the topic.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+  ### Client
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
+The application allows you to ask questions in a semi-anonymous manner (or fully anonymous if you are using the anonymous user, if the host created the room with appropriate rules) 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+You can either select the tags that are provided by the host when generating a room, or type your question as is, and the integrated NLP system will detect the topics of interest by hand.
+
+![Question](./docs/question.png)
+
+## Stack
+
+### Back-end
+
+* Express API
+* Knex query system
+* PostgresQL
+* Heroku deployment
+* Heroku-Postgres provisioned database
+
+
+### Front-end
+
+* React
+* D3
+* compromise (natural language processing)
+* Material UI
+* Netlify deployment
+
+
+## Installation
+
+### Server
+In order to use this application locally, you must install PostgreSQL on your local machine.
+
+The application assumes you use port 5432 (default) for your installation of the database.
+
+Create a user ```final``` with password of ```final``` 
+
+With that user being the owner of the database, create the database ```final```
+
+Assuming you have both the client and the server repositories cloned on your machine, navigate to the server repository in your terminal/command-line-prompt and type ```npm install```  
+
+You may attempt to run the server with ```npm start``` or ```npm run start```
+
+Navigating to localhost:3001 in your browser should give you the following message as JSON:
+
+```{"message": "No resource at this route, try /users, /rooms, /guests, /questions" }```
+
+As of this point, you should not be able to see anything if you hit /users or other routes, it will return an empty array ```[]```
+
+
+Within the root directory of the server, in your terminal type command ```npm run reset```
+
+This will create the tables and seed some data into them
+
+Your back-end is now set up
+
+
