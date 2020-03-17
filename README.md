@@ -31,7 +31,7 @@ The team behind the project are all students from universities. We've all had an
 
 * Reputation/uncertainty of the validity of the question
 
-  And finally, the simplest and the silliest reason of them all. We simply don't know if the question we are asking is "stupid" and we don't want to seem like an idiot in front of the whole audience. 
+  And finally, the simplest and the silliest reason of them all. We simply don't know if the question we are asking is "bad" and we don't want to seem like a person who is not informed in front of the whole audience. 
 
 ## Solution
 
